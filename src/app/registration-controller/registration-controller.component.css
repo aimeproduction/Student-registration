@@ -1,0 +1,70 @@
+.general{
+  margin-left: 3em;
+  margin-right: 3em;
+}
+.general1{
+  margin-top: 4em;
+  width: 40%;
+  float: left;
+}
+
+.general2{
+  margin-top: 1.15em;
+  width: 60%;
+  float: right;
+
+}
+
+button{
+  margin-left: 40px;
+}
+.table {
+  border: none;
+}
+.table-sm{
+  width: 30%;
+  white-space: nowrap;
+  font-size: 19px;
+}
+
+.table1 {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+ .th1, .td1 {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+ .th1{
+   background-color: blueviolet;
+ }
+ .td2{
+   background-color: yellow;
+ }
+ .td1{
+   height: 50px;
+   background-color: aqua;
+ }
+ .th0{
+   height: 50px;
+   font-size: 19px;
+ }
+.td0{
+  height: 60px;
+  background-color: coral;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h1{
+  background-color: darkorange;
+  text-align: center;
+}
+.td3{
+  background-color: bisque;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.bt1{
+  margin-left: 1em;
+
+}

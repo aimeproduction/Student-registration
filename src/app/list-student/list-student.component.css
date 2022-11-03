@@ -1,0 +1,54 @@
+.table {
+  border: none;
+}
+.table-sm{
+  width: 30%;
+  white-space: nowrap;
+  font-size: 19px;
+}
+
+.table1 {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: 10em;
+}
+.th1, .td1 {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.th1{
+  background-color: blueviolet;
+}
+.th2{
+  background-color: blueviolet;
+}
+
+
+.td0{
+  height: 60px;
+  background-color: coral;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+h1{
+  background-color: darkorange;
+  text-align: center;
+}
+
+.vertical-align{
+  border: 1px solid black;
+  background-color: yellow;
+  text-align: center;
+}
+.bt1{
+  margin-left: 1em;
+}
+.bt2{
+  margin-left: 45em;
+}
+.child, .child1{
+  display: inline-block;
+}
+.child1{
+  margin-left: 60em;
+}

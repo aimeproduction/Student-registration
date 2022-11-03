@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "matricule": "st1001",
+      "student_firstname": "Last chance",
+      "student_lastname": "name",
+      "date": "2025-01-01",
+      "street": "xcvxvxy",
+      "postcode": "xycxycx",
+      "city": "xcyxcx",
+      "id": 7
+    },
+    {
+      "matricule": "st1002",
+      "student_firstname": "Mickayel",
+      "student_lastname": "Nangue",
+      "date": "1995-08-01",
+      "street": "Franz-ludwigstr 9",
+      "postcode": "97072",
+      "city": "Würzburg",
+      "id": 8
+    },
+    {
+      "matricule": "st1003",
+      "student_firstname": "Donald",
+      "student_lastname": "aaaaaa",
+      "date": "2020-02-02",
+      "street": "Eveche",
+      "postcode": "4523",
+      "city": "Bafoussam",
+      "id": 9
+    },
+    {
+      "matricule": "st1004",
+      "student_firstname": "test",
+      "student_lastname": "kljlk",
+      "date": "2022-01-01",
+      "street": "jhjkh",
+      "postcode": "jhjkhk",
+      "city": "jkhkjhj",
+      "id": 10
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

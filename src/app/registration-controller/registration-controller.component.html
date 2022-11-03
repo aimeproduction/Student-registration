@@ -1,0 +1,101 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="child">
+    <h1><h1>Enregistrement eleve</h1></h1>
+    <div class="child">
+      <button class="bt1" mat-raised-button color="primary" [routerLink]="'/list-student'">List of student</button>
+    </div>
+  </div>
+</nav>
+
+<div class="general">
+<div class="general1">
+  <form class="ui container form" appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); create_matricule()">
+    <table class="table">
+      <tr>
+        <th class="th0">
+          Nom eleve*
+        </th>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Veuillez entrer un nom</mat-label>
+            <input matInput formControlName="firstname">
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="th0">
+          Prenom eleve*
+        </th>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Veuillez entrer un prenom</mat-label>
+            <input matInput formControlName="lastname">
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <th class="th0">
+          Date de naissance*
+        </th>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label></mat-label>
+            <input type="date" matInput formControlName="date">
+          </mat-form-field>
+        </td>
+      </tr>
+            <tr>
+              <th class="th0">
+                Nom de la rue*
+              </th>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Veuillez entrer la rue</mat-label>
+                  <input matInput formControlName="street">
+                </mat-form-field>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="th0">
+                Code postal*
+              </th>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>entrer le code postal</mat-label>
+                  <input matInput formControlName="postcode">
+                </mat-form-field>
+              </td>
+            </tr>
+
+            <tr>
+              <th class="th0">
+                ville*
+              </th>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>entrer la ville</mat-label>
+                  <input matInput formControlName="city">
+                </mat-form-field>
+              </td>
+            </tr>
+      <tr>
+        <td>
+
+        </td>
+        <td>
+          <mat-error *ngIf="!form.valid">
+          </mat-error>
+          <button mat-raised-button color="primary" [disabled]="!form.valid">Ajouter eleve</button>
+        </td>
+      </tr>
+          </table>
+
+          </form>
+      </div>
+      <br/>
+
+
+</div>
+

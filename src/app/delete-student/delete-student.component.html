@@ -1,0 +1,76 @@
+<html>
+<div class="general">
+  <div class="general1">
+    <form class="ui container form" appearance="fill"  [formGroup]="form">
+      <h4>This student will be deleted:</h4>
+      <table class="table">
+        <tr>
+          <th class="th0">
+            Nom eleve*
+          </th>
+          <td>
+            {{data_api.student_firstname}}
+          </td>
+        </tr>
+        <tr>
+          <th class="th0">
+            Prenom eleve*
+          </th>
+          <td>
+            {{data_api.student_lastname}}
+          </td>
+        </tr>
+        <tr>
+          <th class="th0">
+            Date de naissance*
+          </th>
+          <td>
+            {{data_api.date}}
+
+          </td>
+        </tr>
+        <tr>
+          <th class="th0">
+            Nom de la rue*
+          </th>
+          <td>
+            {{data_api.street}}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="th0">
+            Code postal*
+          </th>
+          <td>
+            {{data_api.postcode}}
+          </td>
+        </tr>
+
+        <tr>
+          <th class="th0">
+            ville*
+          </th>
+          <td>
+            {{data_api.city}}
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+
+          </td>
+          <td>
+            <button mat-raised-button color="primary" (click)="ClickClose()">Abbrechen</button>
+          </td>
+          <td>
+            <button mat-raised-button color="primary" (click)=" delete_student()">Delete data</button>
+          </td>
+        </tr>
+      </table>
+
+    </form>
+  </div>
+</div>
+</html>

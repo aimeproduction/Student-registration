@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title>
+
+  </title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-primary">
+  <div>
+    <h1>List of registered students</h1>
+    <div class="child">
+    <button class="bt1" mat-raised-button color="primary" [routerLink]="'/student-registration'">back to registration</button>
+    </div>
+    <div class="child1">
+      <form class="ui container form" appearance="fill" [formGroup]="form_search" (ngSubmit)="word_search(form_search.value.search)">
+      <input type="search" formControlName="search" style="height: 30px;">
+      <button class="bt1" mat-raised-button color="primary" (click)="toggleElement()"> Search</button>
+      </form>
+    </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<div *ngIf="!visibleConfiguration">
+<table class="table1 table-hover table-sm table-bordered">
+  <tr>
+    <th class="th2">
+      Matricule
+    </th>
+    <th class="th1">
+      Firstname
+    </th>
+    <th class="th1">
+      Lastname
+    </th>
+    <th class="th1">
+      Birthday
+    </th>
+    <th class="th1">
+      Street
+    </th>
+    <th class="th1">
+      Post code
+    </th>
+    <th class="th1">
+      city of residence
+    </th>
+    <th class="td0">&nbsp;&nbsp; Administration
+    </th>
+  </tr>
+  <tr *ngFor="let item of data">
+    <td class="vertical-align">{{item.matricule}}</td>
+    <td class="vertical-align">{{item.student_firstname}}</td>
+    <td class="vertical-align ">{{item.student_lastname}}</td>
+    <td class="vertical-align">{{item.date}}</td>
+    <td class="vertical-align">{{item.street}}</td>
+    <td class="vertical-align ">{{item.postcode}}</td>
+    <td class="vertical-align ">{{item.city}}</td>
+    <td class="vertical-align">
+      <button mat-icon-button matTooltip="bearbeiten" color="primary" aria-label="bearbeiten"
+              (click)="get_action(item.matricule, item.id)">
+        <mat-icon>mode_edit_outline</mat-icon>
+      </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-icon-button matTooltip="löschen" color="warn" aria-label="löschen"
+              (click)="delete_student(item.matricule, item.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+<div class="general1" *ngIf="!hideElementConfiguration">
+  <button class="bt2" mat-raised-button color="primary" (click)="toggleElement()"> List of registered students</button>
+  <br><br>
+    <table class="table1 table-hover table-sm table-bordered">
+      <tr>
+        <th class="th2">
+          Matricule
+        </th>
+        <th class="th1">
+          Firstname
+        </th>
+        <th class="th1">
+          Lastname
+        </th>
+        <th class="th1">
+          Birthday
+        </th>
+        <th class="th1">
+          Street
+        </th>
+        <th class="th1">
+          Post code
+        </th>
+        <th class="th1">
+          city of residence
+        </th>
+        <th class="td0">&nbsp;&nbsp; Administration
+        </th>
+      </tr>
+      <tr *ngFor="let item of found_data">
+        <td class="vertical-align">{{item.matricule}}</td>
+        <td class="vertical-align">{{item.student_firstname}}</td>
+        <td class="vertical-align ">{{item.student_lastname}}</td>
+        <td class="vertical-align">{{item.date}}</td>
+        <td class="vertical-align">{{item.street}}</td>
+        <td class="vertical-align ">{{item.postcode}}</td>
+        <td class="vertical-align ">{{item.city}}</td>
+        <td class="vertical-align">
+          <button mat-icon-button matTooltip="bearbeiten" color="primary" aria-label="bearbeiten"
+                  (click)="get_action_search(item.matricule)">
+            <mat-icon>mode_edit_outline</mat-icon>
+          </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-icon-button matTooltip="löschen" color="warn" aria-label="löschen"
+                  (click)="delete_student_search(item.matricule)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+</div>
+</body>
+</html>
