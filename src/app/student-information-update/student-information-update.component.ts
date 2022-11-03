@@ -70,7 +70,6 @@ get_student_data(){
   test(){
     this.student_id = this.data.student_id;
     this.student_matricule = this.data.student_matricule;
-
   }
 
   ClickClose(): void {

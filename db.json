@@ -1,94 +1,34 @@
 {
   "posts": [
     {
-      "matricule": "st1001",
-      "student_firstname": "New chance",
-      "student_lastname": "hier name",
-      "date": "2025-01-01",
-      "street": "xcvxvxy",
-      "postcode": "xycxycx",
-      "city": "xcyxcx",
-      "id": 7
-    },
-    {
-      "matricule": "st1003",
-      "student_firstname": "Donald",
-      "student_lastname": "aaaaaa",
-      "date": "2020-02-02",
-      "street": "Eveche",
-      "postcode": "4523",
-      "city": "Bafoussam",
-      "id": 9
-    },
-    {
-      "matricule": "st1004",
-      "student_firstname": "test",
-      "student_lastname": "kljlk",
+      "matricule": "st11",
+      "student_firstname": "Mickayel Aime",
+      "student_lastname": "Nangue Nguepi",
       "date": "2022-01-01",
-      "street": "jhjkh",
-      "postcode": "jhjkhk",
-      "city": "jkhkjhj",
-      "id": 10
+      "street": "Franz-Ludwigstr 9",
+      "postcode": "97072",
+      "city": "Würzburg",
+      "id": 2
     },
     {
-      "matricule": "st1000",
-      "student_firstname": "Mike",
-      "student_lastname": "Mike",
+      "matricule": "st12",
+      "student_firstname": "Mickayel Aime",
+      "student_lastname": "Nangue Nguepi",
       "date": "2022-01-01",
-      "street": "mike",
-      "postcode": "mike",
-      "city": "mike",
-      "id": 17
+      "street": "Franz-Ludwigstr 9",
+      "postcode": "97072",
+      "city": "Würzburg",
+      "id": 3
     },
     {
-      "matricule": "st1000",
-      "student_firstname": "aaaaa",
-      "student_lastname": "aaaaa",
+      "matricule": "st13",
+      "student_firstname": "Mickayel Aime",
+      "student_lastname": "Nangue Nguepi",
       "date": "2022-01-01",
-      "street": "aaaaa",
-      "postcode": "aaaaaa",
-      "city": "aaaa",
-      "id": 18
-    },
-    {
-      "matricule": "st1000",
-      "student_firstname": "bvcbvc",
-      "student_lastname": "cvxcxc",
-      "date": "2022-02-01",
-      "street": "dfds",
-      "postcode": "dcyxc",
-      "city": "sdfsf",
-      "id": 19
-    },
-    {
-      "matricule": "st1000",
-      "student_firstname": "ddsxc",
-      "student_lastname": "dvdx",
-      "date": "2023-01-01",
-      "street": "dfdf",
-      "postcode": "dvxcv",
-      "city": "vxcvcx",
-      "id": 20
-    },
-    {
-      "matricule": "st1000",
-      "student_firstname": "vbcc",
-      "student_lastname": "sfdsfs",
-      "date": "2022-01-01",
-      "street": "dfds",
-      "postcode": "dfdsf",
-      "city": "dfsdff",
-      "id": 21
-    },
-    {
-      "matricule": "st1000",
-      "student_firstname": "vbxvxd",
-      "student_lastname": "dxcvv",
-      "date": "2022-01-01",
-      "street": "dfsd",
-      "postcode": "fdfs",
-      "city": "dfsd",
-      "id": 22
+      "street": "Franz-Ludwigstr 9",
+      "postcode": "97072",
+      "city": "Würzburg",
+      "id": 4
     }
   ],
   "comments": [],

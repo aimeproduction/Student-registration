@@ -40,7 +40,7 @@ export class ListStudentComponent implements OnInit {
     this.student_matricule = matricule;
     this.student_id = id;
     this.dialog.open(DeleteStudentComponent, {
-      width: '700px', height: '650px',
+      width: '500px', height: '500px',
       data: {student_matricule: this.student_matricule, student_id: this.student_id}
     });
 
@@ -64,8 +64,8 @@ export class ListStudentComponent implements OnInit {
       });
 
   }
-  get_action_search(matricule: string){
-    this.student_matricule = matricule;
+  get_action_search(value: string){
+    this.student_matricule = value;
     this.dialog.open(StudentInformationUpdateComponent, {
       width: '700px', height: '650px',
       data: {student_matricule: this.student_matricule}

@@ -1,11 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-
-import {StudentDashboardModel} from "./student-dashboard-model";
-import {ApiService, StudentPlayLoad} from "../backend/api.service";
+import { MatDialog} from "@angular/material/dialog";
+import {ApiService} from "../backend/api.service";
 
 export interface DialogData {
   student_matricule: string;
@@ -20,19 +18,14 @@ export interface DialogData {
 export class RegistrationControllerComponent implements OnInit {
   visible = true;
   hideElement = true;
-  student_firstname = '';
-  student_lastname='';
-  date ='';
-  street ='';
-  postcode ='';
-  city ='';
   public form!: FormGroup;
   matricule_first_part ='st'
-  matricule_last_part = 1000;
+  matricule_last_part = 1;
   matricule = '';
   public formDiagram!: FormGroup;
-  //studentmodel: StudentDashboardModel = new StudentDashboardModel();
-  studentmodel!: StudentPlayLoad;
+  data: any;
+  temp!: number;
+
 
   toggleElement() {
     this.hideElement = !this.hideElement;
@@ -42,19 +35,29 @@ export class RegistrationControllerComponent implements OnInit {
   }
 
 
-  onSubmit(form: FormGroup) {
-    this.matricule = this.matricule_first_part + this.matricule_last_part;
-    this.matricule_last_part++;
-    this.form.value.matricule = this.matricule;
-    console.log(this.form.value);
-this.api.post_student_data(this.form.value).subscribe(res=>{
-  console.log(res);
-  alert("student added");
-  location.reload();
-},
-error => {
-  alert("wrong");
-})
+  onSubmit() {
+    this.api.get_student_data().subscribe((res) => {
+        this.data = res;
+        if(this.data.length ==0){
+          this.temp =0;
+        }
+        else {
+          this.temp = this.data[this.data.length - 1].id;
+        }
+        this.matricule = this.matricule_first_part + this.matricule_last_part+this.temp;
+        this.form.value.matricule = this.matricule;
+        console.log(this.form.value);
+        this.api.post_student_data(this.form.value).subscribe(res=> {
+          alert("A student has been added!");
+          location.reload();
+          },
+          error => {
+            alert("Error, Unsuccessfully.");
+          })
+      },
+      error => {
+        alert("wrong");
+      })
   }
 
 
@@ -78,8 +81,3 @@ error => {
   }
 
 }
-
-
-
-
-

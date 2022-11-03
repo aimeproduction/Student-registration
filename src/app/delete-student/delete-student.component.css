@@ -1,0 +1,22 @@
+html {
+  margin: 0;
+  font-family: Roboto,
+  "Helvetica Neue",
+  sans-serif;
+  background-color: forestgreen;
+}
+
+.table{
+  margin-left: 5em;
+}
+.td10{
+  text-align: left;
+}
+h2{
+  color: red;
+  margin-left: 3.5em;
+}
+.td{
+  height: 50px;
+  font-size: 15px;
+}

@@ -34,6 +34,7 @@ button{
  .th1, .td1 {
   border: 1px solid black;
   border-collapse: collapse;
+
 }
  .th1{
    background-color: blueviolet;
@@ -47,7 +48,6 @@ button{
  }
  .th0{
    height: 50px;
-   font-size: 19px;
  }
 .td0{
   height: 60px;

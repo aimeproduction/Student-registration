@@ -2,70 +2,63 @@
 <div class="general">
   <div class="general1">
     <form class="ui container form" appearance="fill"  [formGroup]="form">
-      <h4>This student will be deleted:</h4>
+      <h2>This student will be deleted:</h2>
       <table class="table">
         <tr>
-          <th class="th0">
-            Nom eleve*
-          </th>
           <td>
-            {{data_api.student_firstname}}
+            <p style="font-size: 20px; color: white;">Firstname:</p> </td>
+          <td>
+            <p style="font-size: 20px; color: red;">{{data_api.student_firstname}}</p>
           </td>
         </tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
-          <th class="th0">
-            Prenom eleve*
-          </th>
           <td>
-            {{data_api.student_lastname}}
+            <p style="font-size: 20px; color: white;">Lastname:</p></td>
+          <td>
+            <p style="font-size: 20px; color: red;">{{data_api.student_lastname}}</p>
+          </td></tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+        <tr>
+          <td>
+            <p style="font-size: 20px; color: white;">Birthday:</p></td>
+          <td> <p style="font-size: 20px; color: red;">{{data_api.date}}</p>
           </td>
         </tr>
-        <tr>
-          <th class="th0">
-            Date de naissance*
-          </th>
-          <td>
-            {{data_api.date}}
-
-          </td>
-        </tr>
-        <tr>
-          <th class="th0">
-            Nom de la rue*
-          </th>
-          <td>
-            {{data_api.street}}
-          </td>
-        </tr>
-
-        <tr>
-          <th class="th0">
-            Code postal*
-          </th>
-          <td>
-            {{data_api.postcode}}
-          </td>
-        </tr>
-
-        <tr>
-          <th class="th0">
-            ville*
-          </th>
-          <td>
-            {{data_api.city}}
-          </td>
-        </tr>
-
-
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
-
+            <p style="font-size: 20px; color: white;">Street:</p> </td>
+          <td>
+            <p style="font-size: 20px; color: red;"> {{data_api.street}}</p>
+          </td></tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+        <tr>
+          <td>
+            <p style="font-size: 20px; color: white;">Postcode:</p> </td>
+          <td>
+            <p style="font-size: 20px; color: red;">{{data_api.postcode}}</p>
+          </td></tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+        <tr>
+          <td>
+            <p style="font-size: 20px; color: white;">City:</p> </td>
+          <td>
+            <p style="font-size: 20px; color: red;">{{data_api.city}}</p>
+          </td></tr>
+        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" (click)="ClickClose()">Cancel</button>
           </td>
           <td>
-            <button mat-raised-button color="primary" (click)="ClickClose()">Abbrechen</button>
           </td>
           <td>
-            <button mat-raised-button color="primary" (click)=" delete_student()">Delete data</button>
+          </td>
+          <td>
+          </td>
+          <td>
+            <button mat-raised-button color="warn" (click)=" delete_student()">Delete data</button>
           </td>
         </tr>
       </table>
