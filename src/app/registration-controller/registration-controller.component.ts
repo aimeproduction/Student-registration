@@ -41,21 +41,13 @@ export class RegistrationControllerComponent implements OnInit {
               public dialog: MatDialog, private api: ApiService) {
   }
 
-create_matricule(){
-    this.matricule = this.matricule_first_part + this.matricule_last_part;
-  this.matricule_last_part++;
-  this.onSubmit();
-}
-  onSubmit() {
-    this.studentmodel.matricule = this.form.value.matricule;
-    this.studentmodel.student_firstname = this.form.value.firstname;
-    this.studentmodel.student_lastname= this.form.value.lastname;
-    this.studentmodel.date = this.form.value.date;
-    this.studentmodel.street = this.form.value.street;
-    this.studentmodel.postcode = this.form.value.postcode;
-    this.studentmodel.city = this.form.value.city;
 
-this.api.post_student_data(this.studentmodel).subscribe(res=>{
+  onSubmit(form: FormGroup) {
+    this.matricule = this.matricule_first_part + this.matricule_last_part;
+    this.matricule_last_part++;
+    this.form.value.matricule = this.matricule;
+    console.log(this.form.value);
+this.api.post_student_data(this.form.value).subscribe(res=>{
   console.log(res);
   alert("student added");
   location.reload();
@@ -75,14 +67,13 @@ error => {
 
     this.form = this.fb.group({
       matricule: [this.matricule],
-      firstname: ['', [Validators.required, Validators.minLength(4)]],
-      lastname: ['', Validators.required],
+      student_firstname: ['', [Validators.required, Validators.minLength(4)]],
+      student_lastname: ['', Validators.required],
       date: ['', Validators.required],
         street: ['', Validators.required],
         postcode: ['', Validators.required],
         city: ['', Validators.required]
     });
-
 
   }
 

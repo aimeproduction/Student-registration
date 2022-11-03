@@ -9,7 +9,7 @@
 
 <div class="general">
 <div class="general1">
-  <form class="ui container form" appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); create_matricule()">
+  <form class="ui container form" appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); onSubmit(form.value)">
     <table class="table">
       <tr>
         <th class="th0">
@@ -18,7 +18,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Veuillez entrer un nom</mat-label>
-            <input matInput formControlName="firstname">
+            <input matInput formControlName="student_firstname">
           </mat-form-field>
         </td>
       </tr>
@@ -30,7 +30,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Veuillez entrer un prenom</mat-label>
-            <input matInput formControlName="lastname">
+            <input matInput formControlName="student_lastname">
           </mat-form-field>
         </td>
       </tr>
