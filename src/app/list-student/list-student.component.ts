@@ -1,9 +1,9 @@
-import {AfterContentChecked, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {StudentInformationUpdateComponent} from "../student-information-update/student-information-update.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../backend/api.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 
 
@@ -23,19 +23,12 @@ export interface StudentPlayLoad {
 })
 export class ListStudentComponent implements OnInit {
   student_matricule: string ='';
-  errorMessageSend: string ='';
   student_id: number = 0;
-
+  no_show = true;
   data: any;
-  found_data: StudentPlayLoad [] = [] ;
-  search: string='';
+  search: any;
   public form_search!: FormGroup;
-  hideElementConfiguration = true;
-  visibleConfiguration = false;
-  toggleElement() {
-    this.visibleConfiguration = !this.visibleConfiguration;
-    this.hideElementConfiguration = !this.hideElementConfiguration;
-  }
+
   delete_student(matricule: string, id: number){
     this.student_matricule = matricule;
     this.student_id = id;
@@ -46,14 +39,6 @@ export class ListStudentComponent implements OnInit {
 
 }
 
-  delete_student_search(matricule: string){
-    this.student_matricule = matricule;
-    this.dialog.open(StudentInformationUpdateComponent, {
-      width: '700px', height: '650px',
-      data: {student_matricule: this.student_matricule}
-    });
-
-  }
 
   get_action( matricule: string, id: number){
     this.student_matricule = matricule;
@@ -64,16 +49,9 @@ export class ListStudentComponent implements OnInit {
       });
 
   }
-  get_action_search(value: string){
-    this.student_matricule = value;
-    this.dialog.open(StudentInformationUpdateComponent, {
-      width: '700px', height: '650px',
-      data: {student_matricule: this.student_matricule}
-    });
-  }
 
 
-  word_search(word: string) {
+ /* word_search(word: string) {
 this.search= word;
     console.log(this.search);
     for(let i =0; i<this.data.length; i++) {
@@ -85,7 +63,8 @@ this.search= word;
       }
     }
     console.log(this.found_data)
-  }
+  }*/
+
 
   constructor(private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService, private fb: FormBuilder) { }

@@ -1,34 +1,34 @@
 {
   "posts": [
     {
+      "matricule": "st10",
+      "student_firstname": "jkfg",
+      "student_lastname": "fgd",
+      "date": "2023-12-11",
+      "street": "fdgd",
+      "postcode": "ghfhgf",
+      "city": "gvnbv",
+      "id": 1
+    },
+    {
       "matricule": "st11",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": "97072",
-      "city": "Würzburg",
+      "student_firstname": "fggf",
+      "student_lastname": "ghghg",
+      "date": "2024-12-11",
+      "street": "dgffg",
+      "postcode": "gfgf",
+      "city": "fg",
       "id": 2
     },
     {
       "matricule": "st12",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": "97072",
+      "student_firstname": "Kamga",
+      "student_lastname": "Borel",
+      "date": "1998-07-24",
+      "street": "Leo-weis",
+      "postcode": 97074,
       "city": "Würzburg",
       "id": 3
-    },
-    {
-      "matricule": "st13",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": "97072",
-      "city": "Würzburg",
-      "id": 4
     }
   ],
   "comments": [],

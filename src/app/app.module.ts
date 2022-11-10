@@ -18,6 +18,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ListStudentComponent } from './list-student/list-student.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { DeleteStudentComponent } from './delete-student/delete-student.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DeleteStudentComponent } from './delete-student/delete-student.componen
         MatButtonModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        MatTooltipModule
+        MatTooltipModule,
+        Ng2SearchPipeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
