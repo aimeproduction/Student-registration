@@ -1,0 +1,19 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+<form [formGroup]="formular">
+  <h1>Connect you!</h1>
+  <div class="inputs_container">
+    <input type="text" formControlName="user" class="form-control" placeholder="Enter the username">
+    <input type="password" formControlName="password" class="form-control" placeholder="Enter the password">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formular.valid" (click)="login()">Login</button>
+  <p>{{errorMessage}}</p>
+</form>
+</body>
+</html>

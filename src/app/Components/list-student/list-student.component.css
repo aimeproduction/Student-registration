@@ -43,9 +43,7 @@ h1{
 .bt1{
   margin-left: 1em;
 }
-.bt2{
-  margin-left: 45em;
-}
+
 .child, .child1{
   display: inline-block;
 }

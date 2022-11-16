@@ -3,12 +3,9 @@ import {Title} from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import { MatDialog} from "@angular/material/dialog";
-import {ApiService} from "../backend/api.service";
+import {ApiService} from "../../Service/api.service";
 
-export interface DialogData {
-  student_matricule: string;
-  student_id: number;
-}
+
 @Component({
   selector: 'app-registration-controller',
   templateUrl: './registration-controller.component.html',
@@ -46,7 +43,6 @@ export class RegistrationControllerComponent implements OnInit {
         }
         this.matricule = this.matricule_first_part + this.matricule_last_part+this.temp;
         this.form.value.matricule = this.matricule;
-        console.log(this.form.value);
         this.api.post_student_data(this.form.value).subscribe(res=> {
           alert("A student has been added!");
           location.reload();

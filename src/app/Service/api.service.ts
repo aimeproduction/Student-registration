@@ -1,17 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {map, tap} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {StudentPlayLoad} from "../Models/studentPlayLoad";
 
-export interface StudentPlayLoad {
-  matricule: string;
-  student_firstname: string;
-  student_lastname: string;
-  date: Date;
-  street: string;
-  postcode: string;
-  city: string;
-}
 
 @Injectable({
   providedIn: 'root'

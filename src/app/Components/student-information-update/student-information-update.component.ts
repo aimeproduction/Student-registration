@@ -1,22 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {DialogData} from "../registration-controller/registration-controller.component";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {ApiService} from "../backend/api.service";
+import {ApiService} from "../../Service/api.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {StudentPlayLoad} from "../../Models/studentPlayLoad";
+import {DialogData} from "../../Models/dialogData";
 
-export interface StudentPlayLoad {
-  matricule: string;
-  student_firstname: string;
-  student_lastname: string;
-  date: Date;
-  diagramtyp: string;
-  street: string;
-  postcode: string;
-  city: string;
-}
 @Component({
   selector: 'app-student-information-update',
   templateUrl: './student-information-update.component.html',
@@ -42,8 +32,7 @@ export class StudentInformationUpdateComponent implements OnInit {
               private api: ApiService,
               private fb: FormBuilder,
               private _snackBar: MatSnackBar,
-              private http: HttpClient,
-              private route: Router) { }
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     this.test();
@@ -102,7 +91,7 @@ get_student_data(){
         }
       );
 
-   this._snackBar.open('Ihre Daten wurden erfolgreich gespeichert', 'Danke', {
+   this._snackBar.open('The data have been updated successfully', 'Danke', {
       duration: 7000,
     });
      location.reload();

@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RegistrationControllerComponent} from "./registration-controller/registration-controller.component";
-import {ListStudentComponent} from "./list-student/list-student.component";
-import {ListStudentGuard} from "./list-student/list-student.guard";
+import {RegistrationControllerComponent} from "./Components/registration-controller/registration-controller.component";
+import {ListStudentComponent} from "./Components/list-student/list-student.component";
+import {LoginComponent} from "./Components/login/login.component";
+
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'student-registration',
+    redirectTo: 'login',
     pathMatch: 'full'
+
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'student-registration',
@@ -17,8 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'list-student',
-    component: ListStudentComponent,
-    canActivate: [ListStudentGuard]
+    component: ListStudentComponent
   }
 ];
 

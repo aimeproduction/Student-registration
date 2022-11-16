@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {DialogData} from "../registration-controller/registration-controller.component";
-import {ApiService} from "../backend/api.service";
+import {DialogData} from "../../Models/dialogData";
+import {ApiService} from "../../Service/api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient} from "@angular/common/http";
 
@@ -62,14 +62,14 @@ export class DeleteStudentComponent implements OnInit {
         this.data_api = data
         console.log(this.data_api);
       }, () => {
-        this.errorMessage = 'Es ist nicht möglich die Abfragen zu laden. Bitte prüfen Sie die Verbindung mit dem Server.'
+        this.errorMessage = 'Es ist nicht möglich die Daten zu laden. Bitte prüfen Sie die Verbindung mit dem Server.'
       });
     }
 
 
   delete_student(){
     this.api.delete_student_data(this.student_id).subscribe();
-    this._snackBar.open('Ihre Daten wurden erfolgreich gespeichert', 'Danke', {
+    this._snackBar.open('The student has been removed from the system.', 'Danke', {
       duration: 7000,
     })
     location.reload();

@@ -2,20 +2,11 @@ import { Component, OnInit} from '@angular/core';
 import {StudentInformationUpdateComponent} from "../student-information-update/student-information-update.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
-import {ApiService} from "../backend/api.service";
+import {ApiService} from "../../Service/api.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 
 
-export interface StudentPlayLoad {
-  matricule: string;
-  student_firstname: string;
-  student_lastname: string;
-  date: Date;
-  street: string;
-  postcode: string;
-  city: string;
-}
 @Component({
   selector: 'app-list-student',
   templateUrl: './list-student.component.html',
