@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentInformationUpdateComponent} from "../student-information-update/student-information-update.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
@@ -13,14 +13,34 @@ import {DeleteStudentComponent} from "../delete-student/delete-student.component
   styleUrls: ['./list-student.component.css']
 })
 export class ListStudentComponent implements OnInit {
-  student_matricule: string ='';
+  constructor(private _snackBar: MatSnackBar,
+              public dialog: MatDialog, private api: ApiService, private fb: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    this.api.get_student_data().subscribe((res) => {
+        this.data = res;
+        console.log(this.data);
+      },
+      error => {
+
+      alert("wrong");
+      })
+
+    this.form_search = this.fb.group({
+      search: [''],
+    });
+  }
+
+
+  student_matricule: string = '';
   student_id: number = 0;
   no_show = true;
   data: any;
   search: any;
   public form_search!: FormGroup;
 
-  delete_student(matricule: string, id: number){
+  delete_student(matricule: string, id: number) {
     this.student_matricule = matricule;
     this.student_id = id;
     this.dialog.open(DeleteStudentComponent, {
@@ -28,50 +48,33 @@ export class ListStudentComponent implements OnInit {
       data: {student_matricule: this.student_matricule, student_id: this.student_id}
     });
 
-}
+  }
 
 
-  get_action( matricule: string, id: number){
+  get_action(matricule: string, id: number) {
     this.student_matricule = matricule;
     this.student_id = id;
-      this.dialog.open(StudentInformationUpdateComponent, {
-        width: '700px', height: '650px',
-        data: {student_matricule: this.student_matricule, student_id: this.student_id}
-      });
-
-  }
-
-
- /* word_search(word: string) {
-this.search= word;
-    console.log(this.search);
-    for(let i =0; i<this.data.length; i++) {
-      if((this.search === this.data[i].matricule)||(this.search === this.data[i].student_firstname)||
-        (this.search === this.data[i].student_lastname) || (this.search === this.data[i].date) ||
-        (this.search === this.data[i].street) || (this.search === this.data[i].postcode) ||
-        (this.search === this.data[i].city)){
-        this.found_data.push(this.data[i]);
-      }
-    }
-    console.log(this.found_data)
-  }*/
-
-
-  constructor(private _snackBar: MatSnackBar,
-              public dialog: MatDialog, private api: ApiService, private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.api.get_student_data().subscribe((res) => {
-      this.data = res;
-        console.log(this.data);
-      },
-      error => {
-        alert("wrong");
-      })
-
-    this.form_search = this.fb.group({
-      search: [''],
+    this.dialog.open(StudentInformationUpdateComponent, {
+      width: '700px', height: '650px',
+      data: {student_matricule: this.student_matricule, student_id: this.student_id}
     });
+
   }
+
+
+  /* word_search(word: string) {
+ this.search= word;
+     console.log(this.search);
+     for(let i =0; i<this.data.length; i++) {
+       if((this.search === this.data[i].matricule)||(this.search === this.data[i].student_firstname)||
+         (this.search === this.data[i].student_lastname) || (this.search === this.data[i].date) ||
+         (this.search === this.data[i].street) || (this.search === this.data[i].postcode) ||
+         (this.search === this.data[i].city)){
+         this.found_data.push(this.data[i]);
+       }
+     }
+     console.log(this.found_data)
+   }*/
+
 
 }

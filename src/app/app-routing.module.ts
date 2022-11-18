@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {RegistrationControllerComponent} from "./Components/registration-controller/registration-controller.component";
 import {ListStudentComponent} from "./Components/list-student/list-student.component";
 import {LoginComponent} from "./Components/login/login.component";
-
+import {ProtectPageGuard} from "./Components/registration-controller/protect-page.guard";
+import {ProtectPageListGuard} from "./Components/list-student/protect-page-list.guard";
+import {ConfirmLeavingGuard} from "./Components/registration-controller/confirm-leaving.guard";
 
 
 const routes: Routes = [
@@ -19,11 +21,14 @@ const routes: Routes = [
   },
   {
     path: 'student-registration',
-    component: RegistrationControllerComponent
+    component: RegistrationControllerComponent,
+    canActivate:[ProtectPageGuard],
+    canDeactivate: [ConfirmLeavingGuard]
   },
   {
     path: 'list-student',
-    component: ListStudentComponent
+    component: ListStudentComponent,
+    canActivate:[ProtectPageListGuard]
   }
 ];
 

@@ -3,7 +3,6 @@ export interface StudentPlayLoad {
   student_firstname: string;
   student_lastname: string;
   date: Date;
-  diagramtyp: string;
   street: string;
   postcode: string;
   city: string;

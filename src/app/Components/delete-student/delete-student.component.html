@@ -2,13 +2,13 @@
 <div class="general">
   <div class="general1">
     <form class="ui container form" appearance="fill"  [formGroup]="form">
-      <h2>This student will be deleted:</h2>
+      <h1>This student will be deleted:</h1>
       <table class="table">
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Firstname:</p> </td>
           <td>
-            <p style="font-size: 20px; color: red;">{{data_api.student_firstname}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data_api.student_firstname}}</p>
           </td>
         </tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -16,13 +16,13 @@
           <td>
             <p style="font-size: 20px; color: white;">Lastname:</p></td>
           <td>
-            <p style="font-size: 20px; color: red;">{{data_api.student_lastname}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data_api.student_lastname}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Birthday:</p></td>
-          <td> <p style="font-size: 20px; color: red;">{{data_api.date}}</p>
+          <td> <p style="font-size: 20px; color: yellow;">{{data_api.date}}</p>
           </td>
         </tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -30,39 +30,25 @@
           <td>
             <p style="font-size: 20px; color: white;">Street:</p> </td>
           <td>
-            <p style="font-size: 20px; color: red;"> {{data_api.street}}</p>
+            <p style="font-size: 20px; color: yellow;"> {{data_api.street}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Postcode:</p> </td>
           <td>
-            <p style="font-size: 20px; color: red;">{{data_api.postcode}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data_api.postcode}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">City:</p> </td>
           <td>
-            <p style="font-size: 20px; color: red;">{{data_api.city}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data_api.city}}</p>
           </td></tr>
-        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-        <tr>
-          <td>
-            <button mat-raised-button color="primary" (click)="ClickClose()">Cancel</button>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-          </td>
-          <td>
-            <button mat-raised-button color="warn" (click)=" delete_student()">Delete data</button>
-          </td>
-        </tr>
-      </table>
-
+      </table><br><br>
+      <button class="btn6" mat-raised-button color="primary" (click)="ClickClose()">Cancel</button>
+      <button class="btn5" mat-raised-button color="warn" (click)=" delete_student()">Delete data</button>
     </form>
   </div>
 </div>

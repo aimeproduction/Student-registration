@@ -9,12 +9,18 @@ import {StudentPlayLoad} from "../Models/studentPlayLoad";
   providedIn: 'root'
 })
 export class ApiService {
-  errorMessage ='';
+  BaseUrl ='http://localhost:3000/posts';
   data: StudentPlayLoad[] = [];
+  firstUser = 'angular1'
+  firstPassword='project1'
+  secondUser = 'angular2'
+  secondPassword='project2'
+  firstUserLogged = false;
+  isSomebodyLogged =false;
   constructor(private http: HttpClient) { }
 
   post_student_data(data: StudentPlayLoad): Observable<StudentPlayLoad> {
-   return this.http.post<StudentPlayLoad>("http://localhost:3000/posts", data).pipe(map((res: any)=>{
+   return this.http.post<StudentPlayLoad>(this.BaseUrl, data).pipe(map((res: any)=>{
      return res;
     }))
   }

@@ -5,16 +5,21 @@ html {
   sans-serif;
   background-color: forestgreen;
 }
-
+.btn5{
+  margin-left: 120px;
+}
+.btn6{
+  margin-left: 70px;
+}
 .table{
   margin-left: 5em;
 }
 .td10{
   text-align: left;
 }
-h2{
+h1{
   color: red;
-  margin-left: 3.5em;
+  margin-left: 3em;
 }
 .td{
   height: 50px;

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import { MatDialog} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
 
 
@@ -16,7 +16,7 @@ export class RegistrationControllerComponent implements OnInit {
   visible = true;
   hideElement = true;
   public form!: FormGroup;
-  matricule_first_part ='st'
+  matricule_first_part = 'st'
   matricule_last_part = 1;
   matricule = '';
   public formDiagram!: FormGroup;
@@ -24,28 +24,27 @@ export class RegistrationControllerComponent implements OnInit {
   temp!: number;
 
 
-  toggleElement() {
-    this.hideElement = !this.hideElement;
-  }
   constructor(private title: Title, private fb: FormBuilder, private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService) {
   }
 
+  toggleElement() {
+    this.hideElement = !this.hideElement;
+  }
 
   onSubmit() {
     this.api.get_student_data().subscribe((res) => {
         this.data = res;
-        if(this.data.length ==0){
-          this.temp =0;
-        }
-        else {
+        if (this.data.length == 0) {
+          this.temp = 0;
+        } else {
           this.temp = this.data[this.data.length - 1].id;
         }
-        this.matricule = this.matricule_first_part + this.matricule_last_part+this.temp;
+        this.matricule = this.matricule_first_part + this.matricule_last_part + this.temp;
         this.form.value.matricule = this.matricule;
-        this.api.post_student_data(this.form.value).subscribe(res=> {
-          alert("A student has been added!");
-          location.reload();
+        this.api.post_student_data(this.form.value).subscribe(res => {
+            alert("A student has been added!");
+            location.reload();
           },
           error => {
             alert("Error, Unsuccessfully.");
@@ -69,9 +68,9 @@ export class RegistrationControllerComponent implements OnInit {
       student_firstname: ['', [Validators.required, Validators.minLength(4)]],
       student_lastname: ['', Validators.required],
       date: ['', Validators.required],
-        street: ['', Validators.required],
-        postcode: ['', Validators.required],
-        city: ['', Validators.required]
+      street: ['', Validators.required],
+      postcode: ['', Validators.required],
+      city: ['', Validators.required]
     });
 
   }

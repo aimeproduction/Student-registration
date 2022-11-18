@@ -8,85 +8,25 @@
       "street": "Franz-Ludwigstr 78",
       "postcode": 97072,
       "city": "Würzburg",
-      "id": 4
-    },
-    {
-      "matricule": "st14",
-      "student_firstname": "Thomas",
-      "student_lastname": "Müller",
-      "date": "2010-01-01",
-      "street": "Straße 1",
-      "postcode": 45245,
-      "city": "München",
-      "id": 5
-    },
-    {
-      "matricule": "st15",
-      "student_firstname": "Nzolang",
-      "student_lastname": "Fabrice",
-      "date": "2000-01-01",
-      "street": "Eveche 1",
-      "postcode": 4523,
-      "city": "Ludwigshafen",
-      "id": 6
-    },
-    {
-      "matricule": "st16",
-      "student_firstname": "Laura",
-      "student_lastname": "Wiesinger",
-      "date": "2011-05-04",
-      "street": "Leo-str 1a",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 7
-    },
-    {
-      "matricule": "st17",
-      "student_firstname": "Kamga",
-      "student_lastname": "Borel",
-      "date": "1987-11-30",
-      "street": "Leo-weismantelstr 12",
-      "postcode": 97074,
-      "city": "Würzburg",
-      "id": 8
-    },
-    {
-      "matricule": "st18",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 9
-    },
-    {
-      "matricule": "st19",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
-      "city": "Würzburg",
       "id": 10
     },
     {
-      "matricule": "st110",
-      "student_firstname": "Fabrice",
-      "student_lastname": "Nguessie Nzolang",
+      "matricule": "st14",
+      "student_firstname": "Aime",
+      "student_lastname": "Nguepi",
       "date": "2022-01-01",
-      "street": "yxcxc",
+      "street": "Franz-Ludwigstr 9",
       "postcode": 97074,
-      "city": "yccxc",
+      "city": "Augsburg",
       "id": 11
     },
     {
       "matricule": "st111",
-      "student_firstname": "Mickayel Aime",
-      "student_lastname": "Nangue Nguepi",
+      "student_firstname": "Melanie",
+      "student_lastname": "Müller",
       "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
+      "street": "kjkkjlk",
+      "postcode": 1554545,
       "city": "Würzburg",
       "id": 12
     }

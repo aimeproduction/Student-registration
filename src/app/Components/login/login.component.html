@@ -12,7 +12,7 @@
     <input type="text" formControlName="user" class="form-control" placeholder="Enter the username">
     <input type="password" formControlName="password" class="form-control" placeholder="Enter the password">
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!formular.valid" (click)="login()">Login</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!formular.valid" (click)="login(formular.value.user, formular.value.password)">Login</button>
   <p>{{errorMessage}}</p>
 </form>
 </body>

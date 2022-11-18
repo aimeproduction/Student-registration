@@ -20,6 +20,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import { DeleteStudentComponent } from './Components/delete-student/delete-student.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { LoginComponent } from './Components/login/login.component';
+import { DialogConfirmComponent } from './Components/dialog-confirm/dialog-confirm.component';
+import {A11yModule} from "@angular/cdk/a11y";
 
 @NgModule({
   declarations: [
@@ -29,26 +31,28 @@ import { LoginComponent } from './Components/login/login.component';
     ListStudentComponent,
     DeleteStudentComponent,
     LoginComponent,
+    DialogConfirmComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatIconModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatInputModule,
-        MatSnackBarModule,
-        MatButtonModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatTooltipModule,
-        Ng2SearchPipeModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    Ng2SearchPipeModule,
+    A11yModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
