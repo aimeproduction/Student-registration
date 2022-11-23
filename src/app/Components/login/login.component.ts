@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../Service/api.service";
 
 
@@ -10,11 +10,11 @@ import {ApiService} from "../../Service/api.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formular!: FormGroup;
+  formular!: UntypedFormGroup;
   errorMessage = '';
   count = 0;
 
-  constructor(private route: Router, private fb: FormBuilder, private api: ApiService) {
+  constructor(private route: Router, private fb: UntypedFormBuilder, private api: ApiService) {
   }
 
   ngOnInit(): void {

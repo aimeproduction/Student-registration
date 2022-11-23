@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
@@ -18,7 +18,7 @@ export class StudentInformationUpdateComponent implements OnInit {
   student_id = 0;
   data_api = {} as StudentPlayLoad ;
   errorMessage='';
-  public form!: FormGroup;
+  public form!: UntypedFormGroup;
   dataToSend!: StudentPlayLoad;
   student_firstname: string= '';
   student_lastname: string= '';
@@ -31,7 +31,7 @@ export class StudentInformationUpdateComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   @Inject(MAT_DIALOG_DATA) public data: DialogData,
               private api: ApiService,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private _snackBar: MatSnackBar,
               private http: HttpClient, private route: Router) { }
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
@@ -15,16 +15,16 @@ import {ApiService} from "../../Service/api.service";
 export class RegistrationControllerComponent implements OnInit {
   visible = true;
   hideElement = true;
-  public form!: FormGroup;
+  public form!: UntypedFormGroup;
   matricule_first_part = 'st'
   matricule_last_part = 1;
   matricule = '';
-  public formDiagram!: FormGroup;
+  public formDiagram!: UntypedFormGroup;
   data: any;
   temp!: number;
 
 
-  constructor(private title: Title, private fb: FormBuilder, private _snackBar: MatSnackBar,
+  constructor(private title: Title, private fb: UntypedFormBuilder, private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService) {
   }
 

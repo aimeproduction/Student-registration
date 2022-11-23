@@ -3,7 +3,7 @@ import {StudentInformationUpdateComponent} from "../student-information-update/s
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
 
@@ -19,10 +19,10 @@ export class ListStudentComponent implements OnInit {
   no_show = true;
   data!: StudentPlayLoad[];
   search: any;
-  public form_search!: FormGroup;
+  public form_search!: UntypedFormGroup;
 
   constructor(private _snackBar: MatSnackBar,
-              public dialog: MatDialog, private api: ApiService, private fb: FormBuilder) {
+              public dialog: MatDialog, private api: ApiService, private fb: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {

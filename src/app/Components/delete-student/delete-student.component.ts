@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {DialogData} from "../../Models/dialogData";
 import {ApiService} from "../../Service/api.service";
@@ -18,7 +18,7 @@ export class DeleteStudentComponent implements OnInit {
   student_id = 0;
   data_api: any;
   the_student: any;
-  public form!: FormGroup;
+  public form!: UntypedFormGroup;
 
   student_firstname: string = '';
   student_lastname: string = '';
@@ -30,7 +30,7 @@ export class DeleteStudentComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DeleteStudentComponent>,
               // tslint:disable-next-line:max-line-length
-              @Inject(MAT_DIALOG_DATA) public data: DialogData, private api: ApiService, private fb: FormBuilder,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData, private api: ApiService, private fb: UntypedFormBuilder,
               private _snackBar: MatSnackBar, private http: HttpClient, private ref:ChangeDetectorRef,
               private router: Router) {
   }
