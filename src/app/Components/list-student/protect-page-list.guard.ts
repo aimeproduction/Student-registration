@@ -12,13 +12,7 @@ export class ProtectPageListGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.api.isSomebodyLogged) {
-        return true
-    }
-    else {
-      console.log('guard'+ this.api.isSomebodyLogged)
-      return false;
-    }
+    return this.api.isSomebodyLogged;
   }
 
 }

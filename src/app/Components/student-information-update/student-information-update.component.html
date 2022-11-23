@@ -1,7 +1,7 @@
 <html>
 <div class="general">
   <div class="general1">
-    <form class="ui container form" appearance="fill"  [formGroup]="form">
+    <form class="ui container form" appearance="fill"  [formGroup]="form" (ngSubmit)="update_data_student()">
       <h1>Please enter the news information:</h1>
       <table class="table">
         <tr>
@@ -82,7 +82,7 @@
 
           </td>
           <td>
-            <button mat-raised-button color="warn" (click)="update_data_student()">Update data</button>
+            <button mat-raised-button color="warn">Update data</button>
           </td>
         </tr>
       </table>

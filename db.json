@@ -1,34 +1,14 @@
 {
   "posts": [
     {
-      "matricule": "st13",
-      "student_firstname": "Mickayel",
+      "matricule": "st116",
+      "student_firstname": "Micka",
       "student_lastname": "Nangue",
       "date": "2022-01-01",
-      "street": "Franz-Ludwigstr 78",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 10
-    },
-    {
-      "matricule": "st14",
-      "student_firstname": "Aime",
-      "student_lastname": "Nguepi",
-      "date": "2022-01-01",
       "street": "Franz-Ludwigstr 9",
-      "postcode": 97074,
-      "city": "Augsburg",
-      "id": 11
-    },
-    {
-      "matricule": "st111",
-      "student_firstname": "Melanie",
-      "student_lastname": "Müller",
-      "date": "2022-01-01",
-      "street": "kjkkjlk",
-      "postcode": 1554545,
-      "city": "Würzburg",
-      "id": 12
+      "postcode": 97072,
+      "city": "Würzb",
+      "id": 17
     }
   ],
   "comments": [],

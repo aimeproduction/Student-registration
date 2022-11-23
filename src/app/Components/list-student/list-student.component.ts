@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
+import {StudentPlayLoad} from "../../Models/studentPlayLoad";
 
 
 @Component({
@@ -13,6 +14,13 @@ import {DeleteStudentComponent} from "../delete-student/delete-student.component
   styleUrls: ['./list-student.component.css']
 })
 export class ListStudentComponent implements OnInit {
+  student_matricule: string = '';
+  student_id: number = 0;
+  no_show = true;
+  data!: StudentPlayLoad[];
+  search: any;
+  public form_search!: FormGroup;
+
   constructor(private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService, private fb: FormBuilder) {
   }
@@ -20,26 +28,16 @@ export class ListStudentComponent implements OnInit {
   ngOnInit(): void {
     this.api.get_student_data().subscribe((res) => {
         this.data = res;
-        console.log(this.data);
       },
       error => {
 
-      alert("wrong");
+        alert("Sorry, it was not possible to load the data.");
       })
 
     this.form_search = this.fb.group({
       search: [''],
     });
   }
-
-
-  student_matricule: string = '';
-  student_id: number = 0;
-  no_show = true;
-  data: any;
-  search: any;
-  public form_search!: FormGroup;
-
   delete_student(matricule: string, id: number) {
     this.student_matricule = matricule;
     this.student_id = id;

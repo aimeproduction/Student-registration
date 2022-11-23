@@ -6,6 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
 import {DialogData} from "../../Models/dialogData";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-student-information-update',
@@ -32,10 +33,10 @@ export class StudentInformationUpdateComponent implements OnInit {
               private api: ApiService,
               private fb: FormBuilder,
               private _snackBar: MatSnackBar,
-              private http: HttpClient) { }
+              private http: HttpClient, private route: Router) { }
 
   ngOnInit(): void {
-    this.test();
+    this.idAndMatricule();
     this.get_student_data();
     this.form = this.fb.group({
       matricule: [''],
@@ -49,14 +50,15 @@ export class StudentInformationUpdateComponent implements OnInit {
   }
 
 get_student_data(){
-  return this.http.get<any>("http://localhost:3000/posts/" + this.student_id).subscribe((data) => {
+  this.api.get_student_data_by_id(this.student_id).subscribe((data) => {
     this.data_api = data
     console.log(this.data_api);
   }, () => {
-    this.errorMessage = 'Es ist nicht möglich die Abfragen zu laden. Bitte prüfen Sie die Verbindung mit dem Server.'
+    this.errorMessage = 'Sorry, it was not possible to load the data.'
   });
   }
-  test(){
+
+  idAndMatricule(){
     this.student_id = this.data.student_id;
     this.student_matricule = this.data.student_matricule;
   }
@@ -76,25 +78,10 @@ get_student_data(){
       postcode: this.form.controls['postcode'].value,
       city: this.form.controls['city'].value
     } as StudentPlayLoad;
+    this.api.update_student_data(this.dataToSend, this.student_id).subscribe();
+    this.ClickClose();
+     this.route.navigate(['list-student'])
 
-    console.log("---------- --- >>>>>>>> " + this.dataToSend);
-
-    this.api.update_student_data(this.dataToSend, this.student_id)
-      .subscribe(
-        {
-          next: (response) => {
-
-          },
-          error: (err: HttpErrorResponse) => {
-              console.log(err.message);
-          }
-        }
-      );
-
-   this._snackBar.open('The data have been updated successfully', 'Danke', {
-      duration: 7000,
-    });
-     location.reload();
   }
 }
 

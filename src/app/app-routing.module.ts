@@ -22,13 +22,13 @@ const routes: Routes = [
   {
     path: 'student-registration',
     component: RegistrationControllerComponent,
-    canActivate:[ProtectPageGuard],
-    canDeactivate: [ConfirmLeavingGuard]
+  // canActivate:[ProtectPageGuard],
+    // canDeactivate: [ConfirmLeavingGuard]
   },
   {
     path: 'list-student',
     component: ListStudentComponent,
-    canActivate:[ProtectPageListGuard]
+    // canActivate:[ProtectPageListGuard]
   }
 ];
 
