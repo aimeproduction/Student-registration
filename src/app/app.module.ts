@@ -14,7 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { StudentInformationUpdateComponent } from './Components/student-information-update/student-information-update.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import { ListStudentComponent } from './Components/list-student/list-student.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { DeleteStudentComponent } from './Components/delete-student/delete-student.component';
@@ -31,7 +31,7 @@ import {A11yModule} from "@angular/cdk/a11y";
     ListStudentComponent,
     DeleteStudentComponent,
     LoginComponent,
-    DialogConfirmComponent,
+    DialogConfirmComponent
 
   ],
   imports: [

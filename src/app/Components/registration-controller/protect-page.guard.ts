@@ -14,7 +14,12 @@ export class ProtectPageGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.api.firstUserLogged) {
       return true
-    } else {
+    }
+    else if(!this.api.isSomebodyLogged){
+      this.route.navigate(['/login'])
+      return false;
+    }
+    else {
       alert('You do not have the required rights to access this page!');
       return false;
     }

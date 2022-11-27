@@ -1,55 +1,77 @@
-.table {
-  border: none;
-}
-.table-sm{
-  width: 30%;
-  white-space: nowrap;
-  font-size: 19px;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
 
-.table1 {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin-left: 10em;
-}
-.th1, .td1 {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-.th1{
-  background-color: blueviolet;
-}
-.th2{
-  background-color: blueviolet;
+body{
+  background: forestgreen;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
 
 
-.td0{
-  height: 60px;
-  background-color: coral;
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-h1{
-  background-color: darkorange;
-  text-align: center;
-}
-
-.vertical-align{
-  border: 1px solid black;
-  background-color: yellow;
-  text-align: center;
+.bt3{
+  margin-left: 1100px;
 }
 .bt1{
-  margin-left: 1em;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.theinput{
+  margin-left: 575px;
+}
+*{
+  margin:0;
+  padding: 0;
+  outline: 0;
+}
+.filter{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: rgb(233,76,161);
+  background: -moz-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+  background: linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e94ca1",endColorstr="#c74ae9",GradientType=1);
+  opacity: .7;
+}
+table{
+  position: absolute;
+  z-index: 2;
+  left: 15%;
+  top: 10%;
+  width: 60%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 2px 15px rgba(64,64,64,.7);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-top: 50px;
+
+}
+td , th{
+  padding: 15px 20px;
+  text-align: center;
+
+
+}
+th{
+  background-color: chocolate;
+  color: #fafafa;
+  font-family: 'Open Sans', Sans-serif, serif;
+  font-weight: 200;
+  text-transform: uppercase;
+
+}
+tr{
+  width: 100%;
+  background-color: #fafafa;
+  font-family: 'Montserrat', sans-serif;
+}
+tr:nth-child(even){
+  background-color: #eeeeee;
 }
 
-.child, .child1{
-  display: inline-block;
-}
-.child1{
-  margin-left: 550px;
-}
-.bt3{
-  margin-left: 1120px;
-}

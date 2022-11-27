@@ -6,6 +6,7 @@ import {LoginComponent} from "./Components/login/login.component";
 import {ProtectPageGuard} from "./Components/registration-controller/protect-page.guard";
 import {ProtectPageListGuard} from "./Components/list-student/protect-page-list.guard";
 import {ConfirmLeavingGuard} from "./Components/registration-controller/confirm-leaving.guard";
+import {ProtectLoginGuard} from "./Components/login/protect-login.guard";
 
 
 const routes: Routes = [
@@ -17,13 +18,14 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canDeactivate: [ProtectLoginGuard]
   },
   {
     path: 'student-registration',
     component: RegistrationControllerComponent,
-  // canActivate:[ProtectPageGuard],
-    // canDeactivate: [ConfirmLeavingGuard]
+    //canActivate:[ProtectPageGuard],
+    canDeactivate: [ConfirmLeavingGuard]
   },
   {
     path: 'list-student',
@@ -37,3 +39,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

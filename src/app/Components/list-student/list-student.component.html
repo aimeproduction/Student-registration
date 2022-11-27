@@ -5,21 +5,18 @@
   </title>
 </head>
 <body>
-<nav class="navbar navbar-light bg-primary">
   <div>
-    <h1>List of registered students</h1>
     <div class="child">
-    <button class="bt1" mat-raised-button color="primary" [routerLink]="">Go to registration</button>
-      <button class="bt3" mat-raised-button color="warn" [routerLink]="">Logout</button>
+    <button class="bt1" mat-raised-button color="primary" [routerLink]="'/student-registration'">Go to registration</button>
+      <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'">Logout</button>
     </div>
     <div class="child1">
       <form class="ui container form" appearance="fill" [formGroup]="form_search">
-      <input type="search" formControlName="search" style="height: 30px;" [(ngModel)]="search">
+      <input class="theinput" type="search" formControlName="search" style="height: 30px;" [(ngModel)]="search">
       <button class="bt1" mat-raised-button color="primary" [disabled]="no_show"> Search</button>
       </form>
     </div>
     </div>
-</nav>
 
 
 
@@ -28,25 +25,25 @@
 <div>
 <table class="table1 table-hover table-sm table-bordered">
   <tr>
-    <th class="th2">
+    <th>
       Matricule
     </th>
-    <th class="th1">
+    <th>
       Firstname
     </th>
-    <th class="th1">
+    <th>
       Lastname
     </th>
-    <th class="th1">
+    <th>
       Birthday
     </th>
-    <th class="th1">
+    <th>
       Street
     </th>
-    <th class="th1">
+    <th>
       Post code
     </th>
-    <th class="th1">
+    <th>
       city of residence
     </th>
     <th class="td0">&nbsp;&nbsp; Administration

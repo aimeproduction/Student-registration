@@ -1,87 +1,69 @@
 <html>
-<nav class="navbar navbar-light bg-primary">
-  <div class="child">
-    <h1>Registration of a student</h1>
-    <div class="child">
-      <button class="bt1" mat-raised-button color="primary" [routerLink]="">List of student</button>
-      <button class="bt3" mat-raised-button color="warn" [routerLink]="">Logout</button>
-    </div>
-  </div>
-</nav>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="child">
+  <button class="bt1" mat-raised-button color="primary" [routerLink]="'/list-student'">List of student</button>
+  <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'">Logout</button>
+</div>
 
-<div class="general">
-<div class="general1">
-  <form class="ui container form" appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); onSubmit()">
-    <table class="table">
+<div class="div-container">
+<form appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); onSubmit()">
+  <h1>Registration of a student</h1>
+  <div class="inputs_container">
+    <table>
       <tr>
-        <th class="th0">
-         <p style="font-size: 20px; color: white;"> Firstname student* </p>
-        </th>
-        <td>
-          <mat-form-field appearance="fill">
-            <mat-label>The firstname</mat-label>
-            <input matInput formControlName="student_firstname">
-          </mat-form-field>
+        <td class="dt0">
+          Firstname
         </td>
-      </tr>
-
-      <tr>
-        <th class="th0">
-          <p style="font-size: 20px; color: white;">Lastname student*</p>
-        </th>
         <td>
-          <mat-form-field appearance="fill">
-            <mat-label>The lastname</mat-label>
-            <input matInput formControlName="student_lastname">
-          </mat-form-field>
+          <input type="text" formControlName="student_firstname" class="form-control" placeholder="Enter the firstname">
         </td>
       </tr>
       <tr>
-        <th class="th0">
-          <p style="font-size: 20px; color: white;">Birthday*</p>
-        </th>
+        <td class="dt0">
+          Lastname
+        </td>
         <td>
-          <mat-form-field appearance="fill">
-            <mat-label></mat-label>
-            <input type="date" matInput formControlName="date">
-          </mat-form-field>
+          <input type="text" formControlName="student_lastname" class="form-control" placeholder="Enter the lastname">
         </td>
       </tr>
-            <tr>
-              <th class="th0">
-                <p style="font-size: 20px; color: white;">Street*</p>
-              </th>
-              <td>
-                <mat-form-field appearance="fill">
-                  <mat-label>the name of the street</mat-label>
-                  <input matInput formControlName="street">
-                </mat-form-field>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="th0">
-                <p style="font-size: 20px; color: white;">Postcode*</p>
-              </th>
-              <td>
-                <mat-form-field appearance="fill">
-                  <mat-label>The post code</mat-label>
-                  <input type="number" matInput formControlName="postcode" >
-                </mat-form-field>
-              </td>
-            </tr>
-
-            <tr>
-              <th class="th0">
-                <p style="font-size: 20px; color: white;">City*</p>
-              </th>
-              <td>
-                <mat-form-field appearance="fill">
-                  <mat-label>Name of the city</mat-label>
-                  <input matInput formControlName="city">
-                </mat-form-field>
-              </td>
-            </tr>
+      <tr>
+        <td class="dt0">
+          Birthday
+        </td>
+        <td>
+          <input type="date" formControlName="date" class="form-control" placeholder="Enter the birthday">
+        </td>
+      </tr>
+      <tr>
+        <td class="dt0">
+          Street
+        </td>
+        <td>
+          <input type="text" formControlName="street" class="form-control" placeholder="The name of the street">
+        </td>
+      </tr>
+      <tr>
+        <td class="dt0">
+          Postcode
+        </td>
+        <td>
+          <input type="number" formControlName="postcode" class="form-control" placeholder="Enter the postcode">
+        </td>
+      </tr>
+      <tr>
+        <td class="dt0">
+          City
+        </td>
+        <td>
+          <input type="text" formControlName="city" class="form-control" placeholder="Enter the post City">
+        </td>
+      </tr>
+      <tr></tr><tr></tr><tr></tr><tr></tr>
       <tr>
         <td>
 
@@ -89,16 +71,12 @@
         <td>
           <mat-error *ngIf="!form.valid">
           </mat-error>
-          <button mat-raised-button color="primary" [disabled]="!form.valid">Add student</button></td>
+          </td>
       </tr>
-          </table>
-
-          </form>
-
-      </div>
-      <br/>
-
-
+    </table>
+    <button mat-raised-button color="primary" [disabled]="!form.valid">Add student</button>
+  </div>
+</form>
 </div>
-
+</body>
 </html>

@@ -13,8 +13,9 @@ export class LoginComponent implements OnInit {
   formular!: UntypedFormGroup;
   errorMessage = '';
   count = 0;
-
+leavePage = false;
   constructor(private route: Router, private fb: UntypedFormBuilder, private api: ApiService) {
+
   }
 
   ngOnInit(): void {
@@ -30,14 +31,17 @@ export class LoginComponent implements OnInit {
       this.errorMessage = '';
       this.api.firstUserLogged = true;
       this.api.isSomebodyLogged =true;
+      this.leavePage = true;
     }
     else if (user === this.api.secondUser && password=== this.api.secondPassword){
       this.route.navigate(['list-student']);
       this.errorMessage = '';
       this.api.isSomebodyLogged =true;
       this.api.firstUserLogged = false;
+      this.leavePage = true;
     } else {
       this.errorMessage = 'User or password incorrect!'
+      this.leavePage = false;
     }
   }
 

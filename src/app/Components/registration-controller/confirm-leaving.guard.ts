@@ -8,19 +8,18 @@ import {MatDialog} from "@angular/material/dialog";
 @Injectable({
   providedIn: 'root'
 })
-export class ConfirmLeavingGuard implements CanDeactivate<unknown> {
+export class ConfirmLeavingGuard implements CanDeactivate<RegistrationControllerComponent> {
+  navigate = false;
   constructor(private dialog: MatDialog) {
   }
   canDeactivate(
-    component: RegistrationControllerComponent,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    component: RegistrationControllerComponent):
+     Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(component.form.dirty){
-      const dialog = this.dialog.open(DialogConfirmComponent);
-      return dialog.afterClosed();
+      const dialogCom = this.dialog.open(DialogConfirmComponent);
+      return dialogCom.afterClosed();
     }
-    return of(true);
+    return of (true);
   }
 
 }
