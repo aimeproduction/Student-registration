@@ -3,8 +3,9 @@ html {
   font-family: Roboto,
   "Helvetica Neue",
   sans-serif;
-  background-color: forestgreen;
+  height: auto;
 }
+
 .btn5{
   margin-left: 120px;
 }
@@ -24,4 +25,26 @@ h1{
 .td{
   height: 50px;
   font-size: 15px;
+}
+.errormessage{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: red;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  margin-left: 10%;
+  margin-top: 40%;
+}
+.loading{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  margin-left: 25%;
+  margin-top: 40%;
 }

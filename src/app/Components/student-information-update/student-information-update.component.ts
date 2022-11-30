@@ -1,12 +1,14 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
 import {DialogData} from "../../Models/dialogData";
 import {Router} from "@angular/router";
+import {Observable, throwError} from "rxjs";
+import {catchError, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-student-information-update',
@@ -14,30 +16,42 @@ import {Router} from "@angular/router";
   styleUrls: ['./student-information-update.component.css']
 })
 export class StudentInformationUpdateComponent implements OnInit {
-  student_matricule ='';
+  student_matricule = '';
   student_id = 0;
-  data_api = {} as StudentPlayLoad ;
-  errorMessage='';
-  public form!: UntypedFormGroup;
+  data_api$!: Observable<StudentPlayLoad>;
+  public form!: FormGroup;
   dataToSend!: StudentPlayLoad;
-  student_firstname: string= '';
-  student_lastname: string= '';
+  student_firstname: string = '';
+  student_lastname: string = '';
   date: Date = new Date();
-  street: string= '';
-  postcode: string= '';
-  city: string= '';
+  street: string = '';
+  postcode: string = '';
+  city: string = '';
+  errorObject = ''
 
   constructor(public dialogRef: MatDialogRef<StudentInformationUpdateComponent>,
-  // tslint:disable-next-line:max-line-length
-  @Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private api: ApiService,
-              private fb: UntypedFormBuilder,
+              // tslint:disable-next-line:max-line-length
+              @Inject(MAT_DIALOG_DATA) public data: DialogData,
+              public api: ApiService,
+              private fb: FormBuilder,
               private _snackBar: MatSnackBar,
-              private http: HttpClient, private route: Router) { }
+              private http: HttpClient, private route: Router) {
+  }
 
   ngOnInit(): void {
     this.idAndMatricule();
-    this.get_student_data();
+    this.errorObject = '';
+
+    this.data_api$ = this.api.get_student_data_by_id(this.student_id).pipe(tap((res: StudentPlayLoad) => {
+        return res;
+      }),
+      catchError(err => {
+        this.errorObject = 'Sorry, it was not possible to load the data.';
+        return throwError(err);
+      })
+    );
+
+
     this.form = this.fb.group({
       matricule: [''],
       student_firstname: ['', [Validators.required, Validators.minLength(4)]],
@@ -49,39 +63,26 @@ export class StudentInformationUpdateComponent implements OnInit {
     });
   }
 
-get_student_data(){
-  this.api.get_student_data_by_id(this.student_id).subscribe((data) => {
-    this.data_api = data
-    console.log(this.data_api);
-  }, () => {
-    this.errorMessage = 'Sorry, it was not possible to load the data.'
-  });
-  }
 
-  idAndMatricule(){
+  idAndMatricule() {
     this.student_id = this.data.student_id;
     this.student_matricule = this.data.student_matricule;
   }
 
-  ClickClose(): void {
-    this.dialogRef.close();
-  }
 
-  update_data_student(){
+  update_data_student() {
 
-    this.dataToSend = {
-      matricule: this.data_api.matricule,
-      student_firstname: this.form.controls['student_firstname'].value,
-      student_lastname: this.form.controls['student_lastname'].value,
-      date: this.form.controls['date'].value,
-      street: this.form.controls['street'].value,
-      postcode: this.form.controls['postcode'].value,
-      city: this.form.controls['city'].value
-    } as StudentPlayLoad;
-    this.api.update_student_data(this.dataToSend, this.student_id).subscribe();
-    this.ClickClose();
-     this.route.navigate(['list-student'])
-
+    this.form.value.matricule = this.student_matricule;
+    this.api.update_student_data(this.form.value, this.student_id).subscribe(() => {
+        this._snackBar.open('Your data has been successfully updated!', 'Okay', {
+          duration: 5000,
+          verticalPosition: 'top'
+        })
+        this.dialogRef.close();
+        this.route.navigate(['list-student']);
+      },
+      error => {
+        alert("Error, failure of the operation");
+      });
   }
 }
-

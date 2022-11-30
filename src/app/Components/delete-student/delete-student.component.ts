@@ -1,11 +1,13 @@
 import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {DialogData} from "../../Models/dialogData";
 import {ApiService} from "../../Service/api.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {Observable, throwError} from "rxjs";
+import {StudentPlayLoad} from "../../Models/studentPlayLoad";
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-delete-student',
@@ -16,40 +18,32 @@ export class DeleteStudentComponent implements OnInit {
 
   student_matricule = '';
   student_id = 0;
-  data_api: any;
-  the_student: any;
-  public form!: UntypedFormGroup;
-
+  data_api$!: Observable<StudentPlayLoad>;
   student_firstname: string = '';
   student_lastname: string = '';
   date: Date = new Date();
   street: string = '';
   postcode: string = '';
   city: string = '';
-  errorMessage = '';
+  errorObject = ''
 
   constructor(public dialogRef: MatDialogRef<DeleteStudentComponent>,
               // tslint:disable-next-line:max-line-length
-              @Inject(MAT_DIALOG_DATA) public data: DialogData, private api: ApiService, private fb: UntypedFormBuilder,
-              private _snackBar: MatSnackBar, private http: HttpClient, private ref:ChangeDetectorRef,
+              @Inject(MAT_DIALOG_DATA) public data: DialogData, private api: ApiService,
+              private _snackBar: MatSnackBar, private http: HttpClient, private ref: ChangeDetectorRef,
               private router: Router) {
   }
 
   ngOnInit(): void {
     this.idAndMatricule();
-    this.get_student_data();
-    this.form = this.fb.group({
-      matricule: [this.student_matricule],
-      firstname: ['', [Validators.required, Validators.minLength(4)]],
-      lastname: ['', Validators.required],
-      date: ['', Validators.required],
-      street: ['', Validators.required],
-      postcode: ['', Validators.required],
-      city: ['', Validators.required]
-    });
-
+    this.errorObject = ''
+    this.data_api$ = this.api.get_student_data_by_id(this.student_id).pipe(
+      catchError(err => {
+        this.errorObject = 'Sorry, it was not possible to load the data.';
+        return throwError(err);
+      })
+    );
   }
-
 
 
   idAndMatricule() {
@@ -61,19 +55,17 @@ export class DeleteStudentComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  get_student_data() {
-    this.api.get_student_data_by_id(this.student_id).subscribe((data) => {
-      this.data_api = data
-      console.log(this.data_api);
-    }, () => {
-      this.errorMessage = 'Sorry, it was not possible to load the data.'
-    });
-  }
-
-
   delete_student() {
-    this.api.delete_student_data(this.student_id).subscribe();
-    this.router.navigate(['list-student']);
-    this.ClickClose();
+    this.api.delete_student_data(this.student_id).subscribe(() => {
+        this._snackBar.open('Your data has been successfully deleted!', 'Okay', {
+          duration: 5000,
+          verticalPosition: 'top'
+        })
+        this.dialogRef.close();
+        this.router.navigate(['list-student']);
+      },
+      error => {
+        alert("Error, failure of the operation");
+      });
   }
 }

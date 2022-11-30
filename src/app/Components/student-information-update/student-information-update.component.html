@@ -1,93 +1,99 @@
 <html>
 <div class="general">
-  <div class="general1">
-    <form class="ui container form" appearance="fill"  [formGroup]="form" (ngSubmit)="update_data_student()">
-      <h1>Please enter the news information:</h1>
-      <table class="table">
-        <tr>
-          <th class="th0">
-            Firstname student*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label>Enter the firstname</mat-label>
-              <input matInput formControlName="student_firstname" [(ngModel)]="this.data_api.student_firstname">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <th class="th0">
-            Lastname student*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label>Enter the lastname</mat-label>
-              <input matInput formControlName="student_lastname" [(ngModel)]="this.data_api.student_lastname">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <th class="th0">
-            Birthday*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label></mat-label>
-              <input type="date" matInput formControlName="date" [(ngModel)]="this.data_api.date">
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <th class="th0">
-            Street*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label>Enter the street</mat-label>
-              <input matInput formControlName="street" [(ngModel)]="this.data_api.street">
-            </mat-form-field>
-          </td>
-        </tr>
 
-        <tr>
-          <th class="th0">
-            Postcode*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label>Enter the postcode</mat-label>
-              <input matInput formControlName="postcode" [(ngModel)]="this.data_api.postcode">
-            </mat-form-field>
-          </td>
-        </tr>
+  <div class="div-container">
+    <form appearance="fill" [formGroup]="form" (ngSubmit)="update_data_student()">
 
-        <tr>
-          <th class="th0">
-            City*
-          </th>
-          <td>
-            <mat-form-field appearance="fill">
-              <mat-label>Enter the city</mat-label>
-              <input matInput formControlName="city" [(ngModel)]="this.data_api.city">
-            </mat-form-field>
-          </td>
-        </tr>
+      <div class="inputs_container">
+        <ng-container *ngIf="data_api$ | async as data; else loadingOrError">
+          <h1>Please enter the news information</h1>
+          <table>
+            <tr>
+              <td class="dt0">
+                Firstname
+              </td>
+              <td>
+                <input matInput formControlName="student_firstname" [(ngModel)]="this.data.student_firstname">
+              </td>
+            </tr>
+            <tr>
+              <td class="dt0">
+                Lastname
+              </td>
+              <td>
+                <input matInput formControlName="student_lastname" [(ngModel)]="this.data.student_lastname">
+              </td>
+            </tr>
+            <tr>
+              <td class="dt0">
+                Birthday
+              </td>
+              <td>
+                <input type="date" matInput formControlName="date" [(ngModel)]="this.data.date">
+              </td>
+            </tr>
+            <tr>
+              <td class="dt0">
+                Street
+              </td>
+              <td>
+                <input matInput formControlName="street" [(ngModel)]="this.data.street">
+              </td>
+            </tr>
+            <tr>
+              <td class="dt0">
+                Postcode
+              </td>
+              <td>
+                <input type="number" matInput formControlName="postcode" [(ngModel)]="this.data.postcode">
+              </td>
+            </tr>
+            <tr>
+              <td class="dt0">
+                City
+              </td>
+              <td>
+                <input matInput formControlName="city" [(ngModel)]="this.data.city">
+              </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+              <td>
 
-
-        <tr>
-          <td>
-            <button mat-raised-button color="primary" routerLink="/list-student" (click)="ClickClose()">Cancel</button>
-          </td>
-          <td>
-
-          </td>
-          <td>
-            <button mat-raised-button color="warn">Update data</button>
-          </td>
-        </tr>
-      </table>
-
+              </td>
+              <td>
+                <mat-error *ngIf="!form.valid">
+                </mat-error>
+              </td>
+            </tr>
+          </table>
+          <button mat-raised-button color="primary" [disabled]="!form.valid">Update data</button>
+        </ng-container>
+      </div>
     </form>
+
+    <ng-template #loadingOrError>
+      <ng-container *ngIf="errorObject; else loading">
+        <div class="col-12 text-center">
+          <div class="alert alert-danger">
+            <p class="errormessage"> {{ errorObject }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loading>
+        <div class="col-12 text-center">
+          <p class="loading">Loading ...</p>
+        </div>
+      </ng-template>
+    </ng-template>
   </div>
 </div>
 </html>
+
+
+
+

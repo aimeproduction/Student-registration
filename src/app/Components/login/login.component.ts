@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   formular!: UntypedFormGroup;
   errorMessage = '';
   count = 0;
-leavePage = false;
+  leavePage = false;
   constructor(private route: Router, private fb: UntypedFormBuilder, private api: ApiService) {
 
   }

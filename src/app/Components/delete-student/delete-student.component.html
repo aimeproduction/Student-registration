@@ -1,14 +1,16 @@
 <html>
 <div class="general">
   <div class="general1">
-    <form class="ui container form" appearance="fill"  [formGroup]="form">
-      <h1>This student will be deleted:</h1>
+    <form class="ui container form" appearance="fill">
+
+      <ng-container *ngIf="data_api$ | async as data; else loadingOrError">
+        <h1>This student will be deleted:</h1>
       <table class="table">
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Firstname:</p> </td>
           <td>
-            <p style="font-size: 20px; color: yellow;">{{data_api.student_firstname}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data.student_firstname}}</p>
           </td>
         </tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -16,13 +18,13 @@
           <td>
             <p style="font-size: 20px; color: white;">Lastname:</p></td>
           <td>
-            <p style="font-size: 20px; color: yellow;">{{data_api.student_lastname}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data.student_lastname}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Birthday:</p></td>
-          <td> <p style="font-size: 20px; color: yellow;">{{data_api.date}}</p>
+          <td> <p style="font-size: 20px; color: yellow;">{{data.date}}</p>
           </td>
         </tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
@@ -30,26 +32,44 @@
           <td>
             <p style="font-size: 20px; color: white;">Street:</p> </td>
           <td>
-            <p style="font-size: 20px; color: yellow;"> {{data_api.street}}</p>
+            <p style="font-size: 20px; color: yellow;"> {{data.street}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">Postcode:</p> </td>
           <td>
-            <p style="font-size: 20px; color: yellow;">{{data_api.postcode}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data.postcode}}</p>
           </td></tr>
         <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
         <tr>
           <td>
             <p style="font-size: 20px; color: white;">City:</p> </td>
           <td>
-            <p style="font-size: 20px; color: yellow;">{{data_api.city}}</p>
+            <p style="font-size: 20px; color: yellow;">{{data.city}}</p>
           </td></tr>
-      </table><br><br>
-      <button class="btn6" mat-raised-button color="primary" (click)="ClickClose()">Cancel</button>
-      <button class="btn5" mat-raised-button color="warn" (click)=" delete_student()">Delete data</button>
+      </table>
+        <br><br>
+        <button class="btn6" mat-raised-button color="primary" (click)="ClickClose()">Cancel</button>
+        <button class="btn5" mat-raised-button color="warn" (click)=" delete_student()">Delete data</button>
+      </ng-container>
     </form>
+
+    <ng-template #loadingOrError>
+      <ng-container *ngIf="errorObject; else loading">
+        <div class="col-12 text-center">
+          <div class="alert alert-danger">
+            <p class="errormessage"> {{ errorObject }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loading>
+        <div class="col-12 text-center">
+          <p class="loading">Loading ...</p>
+        </div>
+      </ng-template>
+    </ng-template>
   </div>
 </div>
 </html>

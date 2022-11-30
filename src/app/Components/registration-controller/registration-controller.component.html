@@ -11,72 +11,76 @@
 </div>
 
 <div class="div-container">
-<form appearance="fill" [formGroup]="form" (ngSubmit)=" toggleElement(); onSubmit()">
-  <h1>Registration of a student</h1>
-  <div class="inputs_container">
-    <table>
-      <tr>
-        <td class="dt0">
-          Firstname
-        </td>
-        <td>
-          <input type="text" formControlName="student_firstname" class="form-control" placeholder="Enter the firstname">
-        </td>
-      </tr>
-      <tr>
-        <td class="dt0">
-          Lastname
-        </td>
-        <td>
-          <input type="text" formControlName="student_lastname" class="form-control" placeholder="Enter the lastname">
-        </td>
-      </tr>
-      <tr>
-        <td class="dt0">
-          Birthday
-        </td>
-        <td>
-          <input type="date" formControlName="date" class="form-control" placeholder="Enter the birthday">
-        </td>
-      </tr>
-      <tr>
-        <td class="dt0">
-          Street
-        </td>
-        <td>
-          <input type="text" formControlName="street" class="form-control" placeholder="The name of the street">
-        </td>
-      </tr>
-      <tr>
-        <td class="dt0">
-          Postcode
-        </td>
-        <td>
-          <input type="number" formControlName="postcode" class="form-control" placeholder="Enter the postcode">
-        </td>
-      </tr>
-      <tr>
-        <td class="dt0">
-          City
-        </td>
-        <td>
-          <input type="text" formControlName="city" class="form-control" placeholder="Enter the post City">
-        </td>
-      </tr>
-      <tr></tr><tr></tr><tr></tr><tr></tr>
-      <tr>
-        <td>
-
-        </td>
-        <td>
-          <mat-error *ngIf="!form.valid">
-          </mat-error>
+  <form appearance="fill" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Registration of a student</h1>
+    <div class="inputs_container">
+      <table>
+        <tr>
+          <td class="dt0">
+            Firstname
           </td>
-      </tr>
-    </table>
-    <button mat-raised-button color="primary" [disabled]="!form.valid">Add student</button>
-  </div>
-</form>
+          <td>
+            <input type="text" formControlName="student_firstname" class="form-control"
+                   placeholder="Enter the firstname">
+          </td>
+        </tr>
+        <tr>
+          <td class="dt0">
+            Lastname
+          </td>
+          <td>
+            <input type="text" formControlName="student_lastname" class="form-control" placeholder="Enter the lastname">
+          </td>
+        </tr>
+        <tr>
+          <td class="dt0">
+            Birthday
+          </td>
+          <td>
+            <input type="date" formControlName="date" class="form-control" placeholder="Enter the birthday">
+          </td>
+        </tr>
+        <tr>
+          <td class="dt0">
+            Street
+          </td>
+          <td>
+            <input type="text" formControlName="street" class="form-control" placeholder="The name of the street">
+          </td>
+        </tr>
+        <tr>
+          <td class="dt0">
+            Postcode
+          </td>
+          <td>
+            <input type="number" formControlName="postcode" class="form-control" placeholder="Enter the postcode">
+          </td>
+        </tr>
+        <tr>
+          <td class="dt0">
+            City
+          </td>
+          <td>
+            <input type="text" formControlName="city" class="form-control" placeholder="Enter the post City">
+          </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+          <td>
+
+          </td>
+          <td>
+            <mat-error *ngIf="!form.valid">
+            </mat-error>
+          </td>
+        </tr>
+      </table>
+      <button mat-raised-button color="primary" [disabled]="!form.valid">Add student</button>
+    </div>
+  </form>
 </div>
 </body>
 </html>

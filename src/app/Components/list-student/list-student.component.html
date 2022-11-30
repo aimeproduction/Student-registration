@@ -23,52 +23,69 @@
 <br>
 <br>
 <div>
-<table class="table1 table-hover table-sm table-bordered">
-  <tr>
-    <th>
-      Matricule
-    </th>
-    <th>
-      Firstname
-    </th>
-    <th>
-      Lastname
-    </th>
-    <th>
-      Birthday
-    </th>
-    <th>
-      Street
-    </th>
-    <th>
-      Post code
-    </th>
-    <th>
-      city of residence
-    </th>
-    <th class="td0">&nbsp;&nbsp; Administration
-    </th>
-  </tr>
-  <tr *ngFor="let item of data | filter: search">
-    <td class="vertical-align">{{item.matricule}}</td>
-    <td class="vertical-align">{{item.student_firstname}}</td>
-    <td class="vertical-align ">{{item.student_lastname}}</td>
-    <td class="vertical-align">{{item.date}}</td>
-    <td class="vertical-align">{{item.street}}</td>
-    <td class="vertical-align ">{{item.postcode}}</td>
-    <td class="vertical-align ">{{item.city}}</td>
-    <td class="vertical-align">
-      <button mat-icon-button matTooltip="bearbeiten" color="primary" aria-label="bearbeiten"
-              (click)="get_action(item.matricule, item.id)">
-        <mat-icon>mode_edit_outline</mat-icon>
-      </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button mat-icon-button matTooltip="löschen" color="warn" aria-label="löschen"
-              (click)="delete_student(item.matricule, item.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </tr>
-</table>
+  <ng-container *ngIf="data$ | async as data; else loadingOrError">
+    <table class="table1 table-hover table-sm table-bordered">
+      <tr>
+        <th>
+          Matricule
+        </th>
+        <th>
+          Firstname
+        </th>
+        <th>
+          Lastname
+        </th>
+        <th>
+          Birthday
+        </th>
+        <th>
+          Street
+        </th>
+        <th>
+          Post code
+        </th>
+        <th>
+          city of residence
+        </th>
+        <th class="td0">&nbsp;&nbsp; Administration
+        </th>
+      </tr>
+      <tr *ngFor="let item of data | filter: search">
+        <td class="vertical-align">{{item.matricule}}</td>
+        <td class="vertical-align">{{item.student_firstname}}</td>
+        <td class="vertical-align ">{{item.student_lastname}}</td>
+        <td class="vertical-align">{{item.date}}</td>
+        <td class="vertical-align">{{item.street}}</td>
+        <td class="vertical-align ">{{item.postcode}}</td>
+        <td class="vertical-align ">{{item.city}}</td>
+        <td class="vertical-align">
+          <button mat-icon-button matTooltip="bearbeiten" color="primary" aria-label="bearbeiten"
+                  (click)="get_action(item.matricule, item.id)">
+            <mat-icon>mode_edit_outline</mat-icon>
+          </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-icon-button matTooltip="löschen" color="warn" aria-label="löschen"
+                  (click)="delete_student(item.matricule, item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+  <ng-template #loadingOrError>
+    <ng-container *ngIf="errorObject; else loading">
+      <div class="col-12 text-center">
+        <div class="alert alert-danger">
+          <p class="errormessage"> {{ errorObject }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #loading>
+      <div class="col-12 text-center">
+        <p class="loading">Loading ...</p>
+      </div>
+    </ng-template>
+  </ng-template>
 </div>
 
 </body>

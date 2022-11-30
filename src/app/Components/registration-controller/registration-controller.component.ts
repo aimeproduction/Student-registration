@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
+import {FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {MatDialog} from "@angular/material/dialog";
 import {ApiService} from "../../Service/api.service";
 
 
@@ -14,23 +13,18 @@ import {ApiService} from "../../Service/api.service";
 
 export class RegistrationControllerComponent implements OnInit {
   visible = true;
-  hideElement = true;
-  public form!: UntypedFormGroup;
+  public form!: FormGroup;
   matricule_first_part = 'st'
   matricule_last_part = 1;
   matricule = '';
-  public formDiagram!: UntypedFormGroup;
   data: any;
   temp!: number;
 
 
-  constructor(private title: Title, private fb: UntypedFormBuilder, private _snackBar: MatSnackBar,
-              public dialog: MatDialog, private api: ApiService) {
+  constructor(private title: Title, private fb: UntypedFormBuilder, private _snackBar: MatSnackBar, private api: ApiService) {
   }
 
-  toggleElement() {
-    this.hideElement = !this.hideElement;
-  }
+
 
   onSubmit() {
     this.api.get_student_data().subscribe((res) => {
@@ -43,11 +37,14 @@ export class RegistrationControllerComponent implements OnInit {
         this.matricule = this.matricule_first_part + this.matricule_last_part + this.temp;
         this.form.value.matricule = this.matricule;
         this.api.post_student_data(this.form.value).subscribe(res => {
-            alert("A student has been added!");
-            location.reload();
+            this.form.reset();
+            this._snackBar.open('Your data has been successfully saved!', 'Okay', {
+              duration: 5000,
+              verticalPosition: 'top'
+            })
           },
           error => {
-            alert("Error, Unsuccessfully.");
+            alert("Error, failure of the operation");
           })
       },
       error => {
@@ -57,12 +54,6 @@ export class RegistrationControllerComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.formDiagram = this.fb.group({
-      valueToUpdate: [''],
-    });
-    this.title.setTitle('registration');
-
-
     this.form = this.fb.group({
       matricule: [this.matricule],
       student_firstname: ['', [Validators.required, Validators.minLength(4)]],

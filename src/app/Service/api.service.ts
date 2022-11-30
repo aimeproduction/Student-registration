@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map, tap} from "rxjs/operators";
-import {Observable, Subject} from "rxjs";
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 import {StudentPlayLoad} from "../Models/studentPlayLoad";
 
 
@@ -9,38 +9,30 @@ import {StudentPlayLoad} from "../Models/studentPlayLoad";
   providedIn: 'root'
 })
 export class ApiService {
-  BaseUrl ='http://localhost:3000/posts';
+  BaseUrl = 'http://localhost:3000/posts';
   data: StudentPlayLoad[] = [];
   firstUser = 'angular1'
-  firstPassword='project1'
+  firstPassword = 'project1'
   secondUser = 'angular2'
-  secondPassword='project2'
+  secondPassword = 'project2'
   firstUserLogged = false;
-  isSomebodyLogged =false;
-  data_api = {} as StudentPlayLoad ;
-  errorMessage='';
-  constructor(private http: HttpClient) { }
-  private refreshdata$ = new Subject<void>();
+  isSomebodyLogged = false;
 
-  get RefreshData$(){
-    return this.refreshdata$;
+  constructor(private http: HttpClient) {
   }
+
   post_student_data(data: StudentPlayLoad): Observable<StudentPlayLoad> {
-   return this.http.post<StudentPlayLoad>(this.BaseUrl, data).pipe(map((res: StudentPlayLoad)=>{
-     return res;
+    return this.http.post<StudentPlayLoad>(this.BaseUrl, data).pipe(map((res: StudentPlayLoad) => {
+      return res;
     }))
   }
 
-  get_student_data_by_id(id: number): Observable<StudentPlayLoad>{
-    return this.http.get<StudentPlayLoad>("http://localhost:3000/posts/" +id);
+  get_student_data_by_id(id: number): Observable<StudentPlayLoad> {
+    return this.http.get<StudentPlayLoad>("http://localhost:3000/posts/" + id);
   }
+
   get_student_data(): Observable<StudentPlayLoad[]> {
-    return this.http.get<StudentPlayLoad[]>("http://localhost:3000/posts")
-      .pipe(
-        tap((res: StudentPlayLoad[]) => {
-            return res;
-        })
-      )
+    return this.http.get<StudentPlayLoad[]>("http://localhost:3000/posts");
   }
 
   update_student_data(data: StudentPlayLoad, id: number): Observable<void> {
@@ -48,7 +40,7 @@ export class ApiService {
   }
 
   delete_student_data(id: number): Observable<void> {
-    return this.http.delete<void>("http://localhost:3000/posts/"+id);
+    return this.http.delete<void>("http://localhost:3000/posts/" + id);
   }
 
 

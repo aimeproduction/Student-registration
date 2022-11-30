@@ -6,6 +6,8 @@ import {ApiService} from "../../Service/api.service";
 import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
+import {Observable, throwError} from "rxjs";
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -17,27 +19,31 @@ export class ListStudentComponent implements OnInit {
   student_matricule: string = '';
   student_id: number = 0;
   no_show = true;
-  data!: StudentPlayLoad[];
+  data$!: Observable<StudentPlayLoad[]>;
   search: any;
   public form_search!: UntypedFormGroup;
+  test =false;
+  errorObject = '';
 
   constructor(private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService, private fb: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {
-    this.api.get_student_data().subscribe((res) => {
-        this.data = res;
-      },
-      error => {
-
-        alert("Sorry, it was not possible to load the data.");
+    this.api.isSomebodyLogged = true;
+    this.errorObject = '';
+    this.data$= this.api.get_student_data().pipe(
+      catchError(err => {
+        this.errorObject = 'Sorry, it was not possible to load the data.';
+        return throwError(err);
       })
+    );
 
     this.form_search = this.fb.group({
       search: [''],
     });
   }
+
   delete_student(matricule: string, id: number) {
     this.student_matricule = matricule;
     this.student_id = id;
