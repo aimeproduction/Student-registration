@@ -74,12 +74,11 @@ export class StudentInformationUpdateComponent implements OnInit {
 
     this.form.value.matricule = this.student_matricule;
     this.api.update_student_data(this.form.value, this.student_id).subscribe(() => {
-        this._snackBar.open('Your data has been successfully updated!', 'Okay', {
+        this._snackBar.open('The student has been successfully added!', 'Okay', {
           duration: 5000,
           verticalPosition: 'top'
         })
         this.dialogRef.close();
-        this.route.navigate(['list-student']);
       },
       error => {
         alert("Error, failure of the operation");

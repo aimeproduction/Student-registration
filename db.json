@@ -1,46 +1,6 @@
 {
   "posts": [
     {
-      "matricule": "st126",
-      "student_firstname": "Mickayel mnn",
-      "student_lastname": "Nangue",
-      "date": "2026-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 27
-    },
-    {
-      "matricule": "st127",
-      "student_firstname": "Melanie",
-      "student_lastname": "Müller",
-      "date": "2015-01-01",
-      "street": "kjkkjlk",
-      "postcode": 1554545,
-      "city": "Würzburg",
-      "id": 28
-    },
-    {
-      "matricule": "st128",
-      "student_firstname": "Mickael Aime",
-      "student_lastname": "Nangue Ngepi",
-      "date": "2016-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 29
-    },
-    {
-      "matricule": "st129",
-      "student_firstname": "Mickayel",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2015-06-30",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
-      "city": "Würzburg",
-      "id": 30
-    },
-    {
       "matricule": "st130",
       "student_firstname": "Mickayel Aime",
       "student_lastname": "Nangue Nguepi",
@@ -49,16 +9,6 @@
       "postcode": 97072,
       "city": "Würzburg",
       "id": 31
-    },
-    {
-      "matricule": "st131",
-      "student_firstname": "Melanie",
-      "student_lastname": "Müller",
-      "date": "2021-01-01",
-      "street": "kjkkjlk",
-      "postcode": 1554545,
-      "city": "Würzburg",
-      "id": 32
     },
     {
       "matricule": "st132",

@@ -57,12 +57,11 @@ export class DeleteStudentComponent implements OnInit {
 
   delete_student() {
     this.api.delete_student_data(this.student_id).subscribe(() => {
-        this._snackBar.open('Your data has been successfully deleted!', 'Okay', {
+        this._snackBar.open('The student has been successfully removed!', 'Okay', {
           duration: 5000,
           verticalPosition: 'top'
         })
         this.dialogRef.close();
-        this.router.navigate(['list-student']);
       },
       error => {
         alert("Error, failure of the operation");

@@ -7,7 +7,7 @@ import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 import {StudentPlayLoad} from "../../Models/studentPlayLoad";
 import {Observable, throwError} from "rxjs";
-import { catchError } from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class ListStudentComponent implements OnInit {
   data$!: Observable<StudentPlayLoad[]>;
   search: any;
   public form_search!: UntypedFormGroup;
-  test =false;
+  test = false;
   errorObject = '';
 
   constructor(private _snackBar: MatSnackBar,
@@ -31,13 +31,8 @@ export class ListStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.isSomebodyLogged = true;
-    this.errorObject = '';
-    this.data$= this.api.get_student_data().pipe(
-      catchError(err => {
-        this.errorObject = 'Sorry, it was not possible to load the data.';
-        return throwError(err);
-      })
-    );
+    this.refresh();
+
 
     this.form_search = this.fb.group({
       search: [''],
@@ -50,21 +45,32 @@ export class ListStudentComponent implements OnInit {
     this.dialog.open(DeleteStudentComponent, {
       width: '500px', height: '500px',
       data: {student_matricule: this.student_matricule, student_id: this.student_id}
+    }).afterClosed().subscribe(result => {
+      this.refresh();
     });
-
   }
 
 
-  get_action(matricule: string, id: number) {
+  update_student(matricule: string, id: number) {
     this.student_matricule = matricule;
     this.student_id = id;
     this.dialog.open(StudentInformationUpdateComponent, {
       width: '700px', height: '650px',
       data: {student_matricule: this.student_matricule, student_id: this.student_id}
+    }).afterClosed().subscribe(result => {
+      this.refresh();
     });
-
   }
 
+  refresh() {
+    this.errorObject = '';
+    this.data$ = this.api.get_student_data().pipe(
+      catchError(err => {
+        this.errorObject = 'Sorry, it was not possible to load the data.';
+        return throwError(err);
+      })
+    );
+  }
 
   /* word_search(word: string) {
  this.search= word;

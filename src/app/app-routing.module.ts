@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {RegistrationControllerComponent} from "./Components/registration-controller/registration-controller.component";
 import {ListStudentComponent} from "./Components/list-student/list-student.component";
 import {LoginComponent} from "./Components/login/login.component";
@@ -19,18 +19,18 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-   // canDeactivate: [ProtectLoginGuard]
+    canDeactivate: [ProtectLoginGuard]
   },
   {
     path: 'student-registration',
     component: RegistrationControllerComponent,
-    //canActivate:[ProtectPageGuard],
-    // canDeactivate: [ConfirmLeavingGuard]
+    canActivate: [ProtectPageGuard],
+    canDeactivate: [ConfirmLeavingGuard]
   },
   {
     path: 'list-student',
     component: ListStudentComponent,
-    // canActivate:[ProtectPageListGuard]
+    canActivate: [ProtectPageListGuard]
   }
 ];
 
@@ -38,5 +38,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
 
