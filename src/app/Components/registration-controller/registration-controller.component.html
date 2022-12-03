@@ -1,15 +1,6 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<app-navbar></app-navbar>
 <body>
-<div class="child">
-  <button class="bt1" mat-raised-button color="primary" [routerLink]="'/list-student'">List of student</button>
-  <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'">Logout</button>
-</div>
-
 <div class="div-container">
   <form appearance="fill" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1>Registration of a student</h1>
@@ -70,7 +61,7 @@
         <tr></tr>
         <tr>
           <td>
-
+            <p class="student-exist"> {{errorstudent}}</p>
           </td>
           <td>
             <mat-error *ngIf="!form.valid">

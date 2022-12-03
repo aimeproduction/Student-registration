@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
 
-body{
+html{
+  height: auto;
   background: forestgreen;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-
 }
+
 .errormessage{
   align-content: center;
   align-items: center;
@@ -30,9 +28,7 @@ body{
   margin-top: 10%;
 }
 
-.bt3{
-  margin-left: 1100px;
-}
+
 .bt1{
   margin-left: 20px;
   margin-top: 10px;
@@ -70,7 +66,7 @@ table{
   box-shadow: 0 2px 15px rgba(64,64,64,.7);
   border-radius: 12px 12px 0 0;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 100px;
 
 }
 td , th{

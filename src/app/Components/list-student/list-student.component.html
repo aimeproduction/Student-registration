@@ -1,23 +1,16 @@
 <html>
-<head>
-  <title>
-
-  </title>
-</head>
+<app-navbar></app-navbar>
 <body>
-  <div>
-    <div class="child">
-    <button class="bt1" mat-raised-button color="primary" [routerLink]="'/student-registration'">Go to registration</button>
-      <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'">Logout</button>
-    </div>
-    <div class="child1">
-      <form class="ui container form" appearance="fill" [formGroup]="form_search">
+<div>
+
+  <div class="child1">
+    <br><br>
+    <form class="ui container form" appearance="fill" [formGroup]="form_search">
       <input class="theinput" type="search" formControlName="search" style="height: 30px;" [(ngModel)]="search">
       <button class="bt1" mat-raised-button color="primary" [disabled]="no_show"> Search</button>
-      </form>
-    </div>
-    </div>
-
+    </form>
+  </div>
+</div>
 
 
 <br>
