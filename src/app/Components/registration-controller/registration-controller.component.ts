@@ -50,7 +50,7 @@ export class RegistrationControllerComponent implements OnInit {
           this.form.value.matricule = this.matricule;
           this.api.post_student_data(this.form.value).subscribe(res => {
               this.form.reset();
-              this._snackBar.open('Your data has been successfully saved!', 'Okay', {
+              this._snackBar.open('A student has been successfully added!', 'Okay', {
                 duration: 5000,
                 verticalPosition: 'top'
               })

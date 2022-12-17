@@ -74,7 +74,7 @@ export class StudentInformationUpdateComponent implements OnInit {
 
     this.form.value.matricule = this.student_matricule;
     this.api.update_student_data(this.form.value, this.student_id).subscribe(() => {
-        this._snackBar.open('The student has been successfully added!', 'Okay', {
+        this._snackBar.open('The data has been successfully updated!', 'Okay', {
           duration: 5000,
           verticalPosition: 'top'
         })
