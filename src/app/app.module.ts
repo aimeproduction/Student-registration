@@ -22,18 +22,21 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { LoginComponent } from './Components/login/login.component';
 import { DialogConfirmComponent } from './Components/dialog-confirm/dialog-confirm.component';
 import {A11yModule} from "@angular/cdk/a11y";
+import {NavbarComponent} from "./Components/navbar/navbar.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegistrationControllerComponent,
-    StudentInformationUpdateComponent,
-    ListStudentComponent,
-    DeleteStudentComponent,
-    LoginComponent,
-    DialogConfirmComponent
+    declarations: [
+        AppComponent,
+        RegistrationControllerComponent,
+        StudentInformationUpdateComponent,
+        ListStudentComponent,
+        DeleteStudentComponent,
+        LoginComponent,
+        DialogConfirmComponent,
+        NavbarComponent
 
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,7 +54,8 @@ import {A11yModule} from "@angular/cdk/a11y";
     BrowserAnimationsModule,
     MatTooltipModule,
     Ng2SearchPipeModule,
-    A11yModule
+    A11yModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,24 +1,24 @@
 {
   "posts": [
     {
-      "matricule": "st130",
-      "student_firstname": "Mickayel Aime",
+      "matricule": "st10",
+      "student_firstname": "Mickayel Aime237",
       "student_lastname": "Nangue Nguepi",
-      "date": "2021-11-30",
+      "date": "2021-01-01",
       "street": "Franz-Ludwigstr 9",
       "postcode": 97072,
       "city": "Würzburg",
-      "id": 31
+      "id": 1
     },
     {
-      "matricule": "st132",
-      "student_firstname": "Mickayel Aime424242",
-      "student_lastname": "Nangue Nguepi",
-      "date": "2017-01-01",
-      "street": "Franz-Ludwigstr 9",
-      "postcode": 97072,
+      "matricule": "st11",
+      "student_firstname": "Melanie",
+      "student_lastname": "Müller",
+      "date": "2022-12-31",
+      "street": "kjkkjlk",
+      "postcode": 1554545,
       "city": "Würzburg",
-      "id": 33
+      "id": 2
     }
   ],
   "comments": [],
