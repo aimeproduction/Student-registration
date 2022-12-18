@@ -6,7 +6,7 @@
 </head>
 <mat-toolbar class="mat-elevation-z8">
   Welcome!
-  <button class="new-book" mat-button color="primary" [routerLink]="'/student-registration'">Registration</button>
-  <button class="list-book" mat-button color="primary" routerLink="/list-student">List students</button>
-  <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'">Logout</button>
+  <button class="new-book" mat-button color="primary" [routerLink]="'/student-registration'" data-cy = "registration-button">Registration</button>
+  <button class="list-book" mat-button color="primary" routerLink="/list-student" data-cy = "list-button">List students</button>
+  <button class="bt3" mat-raised-button color="warn" [routerLink]="'/login'" data-cy = "logout-button">Logout</button>
 </mat-toolbar>
