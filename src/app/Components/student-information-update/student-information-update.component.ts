@@ -25,8 +25,6 @@ export class StudentInformationUpdateComponent implements OnInit {
   student_lastname: string = '';
   date: Date = new Date();
   street: string = '';
-  postcode: string = '';
-  city: string = '';
   errorObject = ''
   dateoftheday!: Date;
   errorstudent = ''
