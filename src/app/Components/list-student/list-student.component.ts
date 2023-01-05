@@ -20,10 +20,11 @@ export class ListStudentComponent implements OnInit {
   student_id: number = 0;
   no_show = true;
   data$!: Observable<StudentPlayLoad[]>;
-  search: any;
+  search!: string;
   public form_search!: UntypedFormGroup;
   test = false;
   errorObject = '';
+  dateoftheday = new Date();
 
   constructor(private _snackBar: MatSnackBar,
               public dialog: MatDialog, private api: ApiService, private fb: UntypedFormBuilder) {
@@ -51,12 +52,13 @@ export class ListStudentComponent implements OnInit {
   }
 
 
-  update_student(matricule: string, id: number) {
+  update_student(matricule: string, id: number, date: Date) {
+    this.dateoftheday = date;
     this.student_matricule = matricule;
     this.student_id = id;
     this.dialog.open(StudentInformationUpdateComponent, {
       width: '700px', height: '650px',
-      data: {student_matricule: this.student_matricule, student_id: this.student_id}
+      data: {student_matricule: this.student_matricule, student_id: this.student_id, dateoftheday: this.dateoftheday}
     }).afterClosed().subscribe(result => {
       this.refresh();
     });

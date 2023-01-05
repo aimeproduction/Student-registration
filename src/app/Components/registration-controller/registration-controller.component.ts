@@ -27,6 +27,7 @@ export class RegistrationControllerComponent implements OnInit {
 
 
   onSubmit() {
+
     this.api.get_student_data().subscribe((res) => {
         this.data = res;
         if (this.data.length == 0) {
@@ -74,9 +75,9 @@ export class RegistrationControllerComponent implements OnInit {
       date: ['', Validators.required],
       street: ['', Validators.required],
       postcode: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      dateoftheDay: new Date()
     });
-
   }
 
 }

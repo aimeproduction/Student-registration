@@ -58,7 +58,7 @@ html{
 table{
   position: absolute;
   z-index: 2;
-  left: 15%;
+  left: 8%;
   top: 10%;
   width: 60%;
   border-collapse: collapse;
@@ -75,6 +75,7 @@ td , th{
 
 
 }
+
 th{
   background-color: chocolate;
   color: #fafafa;

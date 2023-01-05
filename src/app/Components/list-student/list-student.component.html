@@ -38,9 +38,13 @@
           Post code
         </th>
         <th>
-          city of residence
+          City of residence
         </th>
-        <th class="td0">&nbsp;&nbsp; Administration
+        <th>
+          Date of enrolment
+        </th>
+        <th>
+          Administration
         </th>
       </tr>
       <tr *ngFor="let item of data | filter: search">
@@ -51,9 +55,10 @@
         <td class="vertical-align">{{item.street}}</td>
         <td class="vertical-align ">{{item.postcode}}</td>
         <td class="vertical-align ">{{item.city}}</td>
+        <td class="vertical-align ">{{item.dateoftheDay}}</td>
         <td class="vertical-align">
           <button mat-icon-button matTooltip="bearbeiten" color="primary" aria-label="bearbeiten"
-                  (click)="update_student(item.matricule, item.id)">
+                  (click)="update_student(item.matricule, item.id, item.dateoftheDay)">
             <mat-icon>mode_edit_outline</mat-icon>
           </button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button mat-icon-button matTooltip="löschen" color="warn" aria-label="löschen"

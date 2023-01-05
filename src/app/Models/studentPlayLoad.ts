@@ -6,4 +6,5 @@ export interface StudentPlayLoad {
   street: string;
   postcode: string;
   city: string;
+  dateoftheDay: Date;
 }

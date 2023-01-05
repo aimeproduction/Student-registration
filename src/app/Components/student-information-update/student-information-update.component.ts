@@ -28,6 +28,11 @@ export class StudentInformationUpdateComponent implements OnInit {
   postcode: string = '';
   city: string = '';
   errorObject = ''
+  dateoftheday!: Date;
+  errorstudent = ''
+  datas: any;
+  saveData = true;
+  temp!: number;
 
   constructor(public dialogRef: MatDialogRef<StudentInformationUpdateComponent>,
               // tslint:disable-next-line:max-line-length
@@ -59,7 +64,8 @@ export class StudentInformationUpdateComponent implements OnInit {
       date: ['', Validators.required],
       street: ['', Validators.required],
       postcode: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      dateoftheDay: this.dateoftheday
     });
   }
 
@@ -67,21 +73,44 @@ export class StudentInformationUpdateComponent implements OnInit {
   idAndMatricule() {
     this.student_id = this.data.student_id;
     this.student_matricule = this.data.student_matricule;
+    this.dateoftheday = this.data.dateoftheday;
   }
 
 
   update_data_student() {
 
-    this.form.value.matricule = this.student_matricule;
-    this.api.update_student_data(this.form.value, this.student_id).subscribe(() => {
-        this._snackBar.open('The data has been successfully updated!', 'Okay', {
-          duration: 5000,
-          verticalPosition: 'top'
-        })
-        this.dialogRef.close();
-      },
-      error => {
-        alert("Error, failure of the operation");
-      });
+    this.api.get_student_data().subscribe((res) => {
+      this.datas = res;
+      if (this.datas.length == 0) {
+        this.temp = 0;
+      } else {
+        this.temp = this.datas[this.datas.length - 1].id;
+      }
+      for (let i = 0; i < this.datas.length; i++) {
+        if ((this.datas[i].student_firstname === this.form.value.student_firstname) && (this.datas[i].student_lastname === this.form.value.student_lastname)
+          && (this.datas[i].date === this.form.value.date) && (this.datas[i].street === this.form.value.street)) {
+          this.errorstudent = 'A student with the same data already exists.'
+          this.saveData = false;
+          break;
+        } else {
+          this.saveData = true;
+          this.errorstudent = '';
+        }
+      }
+
+      if (this.saveData) {
+        this.form.value.matricule = this.student_matricule;
+        this.api.update_student_data(this.form.value, this.student_id).subscribe(() => {
+            this._snackBar.open('The data has been successfully updated!', 'Okay', {
+              duration: 5000,
+              verticalPosition: 'top'
+            })
+            this.dialogRef.close();
+          },
+          error => {
+            alert("Error, failure of the operation");
+          });
+      }
+    })
   }
 }
